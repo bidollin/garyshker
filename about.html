@@ -520,15 +520,26 @@
       <button class="year-tab" type="button" data-year="2020">2020</button>
       <button class="year-tab" type="button" data-year="2021">2021</button>
       <button class="year-tab" type="button" data-year="2022">2022</button>
-      <button class="year-tab" type="button" data-year="2023">2023</button>
+      <button class="year-tab is-active" type="button" data-year="2023">2023</button>
       <button class="year-tab" type="button" data-year="2024">2024</button>
-      <button class="year-tab is-active" type="button" data-year="2025">2025</button>
+      <button class="year-tab" type="button" data-year="2025">2025</button>
     </div>
 
-    <div class="report-panel is-active rv" id="report-panel">
+    <!-- 2019 — нет данных -->
+    <div class="report-panel" id="panel-2019">
+      <p class="report-note" style="padding: 44px 0; font-size: 16px;">Данные за 2019 год не опубликованы.</p>
+    </div>
+
+    <!-- 2020 — нет данных -->
+    <div class="report-panel" id="panel-2020">
+      <p class="report-note" style="padding: 44px 0; font-size: 16px;">Данные за 2020 год не опубликованы.</p>
+    </div>
+
+    <!-- 2021 -->
+    <div class="report-panel" id="panel-2021">
       <div class="report-stats">
         <div class="report-stat">
-          <div class="report-stat__n">—</div>
+          <div class="report-stat__n">370</div>
           <div class="report-stat__l" data-i18n="about.report.stat.l1">Рюкзаков роздано</div>
         </div>
         <div class="report-stat">
@@ -540,7 +551,7 @@
           <div class="report-stat__l" data-i18n="about.report.stat.l3">Партнёров</div>
         </div>
         <div class="report-stat">
-          <div class="report-stat__n">—</div>
+          <div class="report-stat__n" style="font-size: clamp(26px, 2.8vw, 38px);">3,85 млн ₸</div>
           <div class="report-stat__l" data-i18n="about.report.stat.l4">Сумма сборов</div>
         </div>
       </div>
@@ -551,34 +562,139 @@
           <div class="report-finance__row"><span data-i18n="about.report.income.r1">Партнёрские взносы</span><span>—</span></div>
           <div class="report-finance__row"><span data-i18n="about.report.income.r2">Частные пожертвования</span><span>—</span></div>
           <div class="report-finance__row"><span data-i18n="about.report.income.r3">Гранты</span><span>—</span></div>
-          <div class="report-finance__row"><span data-i18n="about.report.income.r4">Итого</span><span>—</span></div>
+          <div class="report-finance__row"><span data-i18n="about.report.income.r4">Итого</span><span>3 851 816 ₸</span></div>
         </div>
         <div class="report-finance__col">
           <div class="report-finance__h" data-i18n="about.report.expense.h">Расходы</div>
-          <div class="report-finance__row"><span data-i18n="about.report.expense.r1">Рюкзаки и канцелярия</span><span>—</span></div>
-          <div class="report-finance__row"><span data-i18n="about.report.expense.r2">Логистика и доставка</span><span>—</span></div>
-          <div class="report-finance__row"><span data-i18n="about.report.expense.r3">Операционные расходы</span><span>—</span></div>
-          <div class="report-finance__row"><span data-i18n="about.report.expense.r4">Итого</span><span>—</span></div>
+          <div class="report-finance__row"><span data-i18n="about.report.expense.r1">Рюкзаки и канцелярия</span><span>3 372 871 ₸</span></div>
+          <div class="report-finance__row"><span data-i18n="about.report.expense.r2">Логистика и доставка</span><span>96 020 ₸</span></div>
+          <div class="report-finance__row"><span data-i18n="about.report.expense.r3">Операционные расходы</span><span>83 195 ₸</span></div>
+          <div class="report-finance__row"><span data-i18n="about.report.expense.r4">Итого</span><span>3 552 086 ₸</span></div>
         </div>
       </div>
 
       <div class="report-partners">
         <div class="report-partners__h" data-i18n="about.report.partners.h">Партнёры и спонсоры года</div>
         <div class="report-partners__row">
-          <span class="partner-pill-light">Партнёр 1</span>
-          <span class="partner-pill-light">Партнёр 2</span>
-          <span class="partner-pill-light">Партнёр 3</span>
+          <span class="partner-pill-light">—</span>
         </div>
       </div>
 
       <div class="report-actions">
-        <a href="#" class="btn btn--amber">
-          <span data-i18n="about.report.download">Скачать PDF-отчёт</span>
-          <span class="arr">→</span>
-        </a>
         <p class="report-note" data-i18n="about.report.note">Все цифры — только верифицированные данные.</p>
       </div>
     </div>
+
+    <!-- 2022 -->
+    <div class="report-panel" id="panel-2022">
+      <div class="report-stats">
+        <div class="report-stat">
+          <div class="report-stat__n">400</div>
+          <div class="report-stat__l" data-i18n="about.report.stat.l1">Рюкзаков роздано</div>
+        </div>
+        <div class="report-stat">
+          <div class="report-stat__n">—</div>
+          <div class="report-stat__l" data-i18n="about.report.stat.l2">Городов</div>
+        </div>
+        <div class="report-stat">
+          <div class="report-stat__n">—</div>
+          <div class="report-stat__l" data-i18n="about.report.stat.l3">Партнёров</div>
+        </div>
+        <div class="report-stat">
+          <div class="report-stat__n" style="font-size: clamp(26px, 2.8vw, 38px);">4,3 млн ₸</div>
+          <div class="report-stat__l" data-i18n="about.report.stat.l4">Сумма сборов</div>
+        </div>
+      </div>
+
+      <div class="report-finance">
+        <div class="report-finance__col">
+          <div class="report-finance__h" data-i18n="about.report.income.h">Доходы</div>
+          <div class="report-finance__row"><span data-i18n="about.report.income.r1">Партнёрские взносы</span><span>—</span></div>
+          <div class="report-finance__row"><span data-i18n="about.report.income.r2">Частные пожертвования</span><span>—</span></div>
+          <div class="report-finance__row"><span data-i18n="about.report.income.r3">Гранты</span><span>—</span></div>
+          <div class="report-finance__row"><span data-i18n="about.report.income.r4">Итого</span><span>4 299 730 ₸</span></div>
+        </div>
+        <div class="report-finance__col">
+          <div class="report-finance__h" data-i18n="about.report.expense.h">Расходы</div>
+          <div class="report-finance__row"><span data-i18n="about.report.expense.r1">Рюкзаки и канцелярия</span><span>4 011 567 ₸</span></div>
+          <div class="report-finance__row"><span data-i18n="about.report.expense.r2">Логистика и доставка</span><span>139 610 ₸</span></div>
+          <div class="report-finance__row"><span data-i18n="about.report.expense.r3">Операционные расходы</span><span>30 900 ₸</span></div>
+          <div class="report-finance__row"><span data-i18n="about.report.expense.r4">Итого</span><span>4 182 077 ₸</span></div>
+        </div>
+      </div>
+
+      <div class="report-partners">
+        <div class="report-partners__h" data-i18n="about.report.partners.h">Партнёры и спонсоры года</div>
+        <div class="report-partners__row">
+          <span class="partner-pill-light">—</span>
+        </div>
+      </div>
+
+      <div class="report-actions">
+        <p class="report-note" data-i18n="about.report.note">Все цифры — только верифицированные данные.</p>
+      </div>
+    </div>
+
+    <!-- 2023 -->
+    <div class="report-panel is-active" id="panel-2023">
+      <div class="report-stats">
+        <div class="report-stat">
+          <div class="report-stat__n">500</div>
+          <div class="report-stat__l" data-i18n="about.report.stat.l1">Рюкзаков роздано</div>
+        </div>
+        <div class="report-stat">
+          <div class="report-stat__n">—</div>
+          <div class="report-stat__l" data-i18n="about.report.stat.l2">Городов</div>
+        </div>
+        <div class="report-stat">
+          <div class="report-stat__n">1</div>
+          <div class="report-stat__l" data-i18n="about.report.stat.l3">Партнёров</div>
+        </div>
+        <div class="report-stat">
+          <div class="report-stat__n" style="font-size: clamp(26px, 2.8vw, 38px);">6 млн ₸</div>
+          <div class="report-stat__l" data-i18n="about.report.stat.l4">Сумма сборов</div>
+        </div>
+      </div>
+
+      <div class="report-finance">
+        <div class="report-finance__col">
+          <div class="report-finance__h" data-i18n="about.report.income.h">Доходы</div>
+          <div class="report-finance__row"><span data-i18n="about.report.income.r1">Партнёрские взносы</span><span>6 000 000 ₸</span></div>
+          <div class="report-finance__row"><span data-i18n="about.report.income.r2">Частные пожертвования</span><span>—</span></div>
+          <div class="report-finance__row"><span data-i18n="about.report.income.r3">Гранты</span><span>—</span></div>
+          <div class="report-finance__row"><span data-i18n="about.report.income.r4">Итого</span><span>6 000 000 ₸</span></div>
+        </div>
+        <div class="report-finance__col">
+          <div class="report-finance__h" data-i18n="about.report.expense.h">Расходы</div>
+          <div class="report-finance__row"><span data-i18n="about.report.expense.r1">Рюкзаки и канцелярия</span><span>5 610 250 ₸</span></div>
+          <div class="report-finance__row"><span data-i18n="about.report.expense.r2">Логистика и доставка</span><span>202 421 ₸</span></div>
+          <div class="report-finance__row"><span data-i18n="about.report.expense.r3">Операционные расходы</span><span>152 326 ₸</span></div>
+          <div class="report-finance__row"><span data-i18n="about.report.expense.r4">Итого</span><span>5 964 997 ₸</span></div>
+        </div>
+      </div>
+
+      <div class="report-partners">
+        <div class="report-partners__h" data-i18n="about.report.partners.h">Партнёры и спонсоры года</div>
+        <div class="report-partners__row">
+          <span class="partner-pill-light">KMF</span>
+        </div>
+      </div>
+
+      <div class="report-actions">
+        <p class="report-note" data-i18n="about.report.note">Все цифры — только верифицированные данные.</p>
+      </div>
+    </div>
+
+    <!-- 2024 — нет данных -->
+    <div class="report-panel" id="panel-2024">
+      <p class="report-note" style="padding: 44px 0; font-size: 16px;">Данные за 2024 год не опубликованы.</p>
+    </div>
+
+    <!-- 2025 — нет данных -->
+    <div class="report-panel" id="panel-2025">
+      <p class="report-note" style="padding: 44px 0; font-size: 16px;">Данные за 2025 год не опубликованы.</p>
+    </div>
+
   </div>
 </section>
 
@@ -688,10 +804,14 @@
   }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
   document.querySelectorAll('.rv').forEach(el => io.observe(el));
 
-  // Year tabs (visual only — data is all placeholder)
+  // Year tabs — switch panels
   document.querySelectorAll('.year-tab').forEach(tab => {
     tab.addEventListener('click', () => {
       document.querySelectorAll('.year-tab').forEach(t => t.classList.toggle('is-active', t === tab));
+      const year = tab.getAttribute('data-year');
+      document.querySelectorAll('.report-panel').forEach(p => p.classList.remove('is-active'));
+      const panel = document.getElementById('panel-' + year);
+      if (panel) panel.classList.add('is-active');
     });
   });
 </script>
