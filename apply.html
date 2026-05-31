@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Получить помощь · Garyshker</title>
+<meta name="description" content="Заявка на рюкзак Cosmosomke и общее обращение в фонд Garyshker.">
+<meta property="og:title" content="Получить помощь · GARYSHKER">
+<meta property="og:url" content="https://garyshkerrr.netlify.app/apply.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GARYSHKER">
+<meta property="og:image" content="https://garyshkerrr.netlify.app/assets/og_cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://garyshkerrr.netlify.app/assets/og_cover.jpg">
+<meta name="theme-color" content="#D4830A">
+<link rel="preload" as="image" href="assets/girl_hugging_backpack.jpg">
+<script src="js/i18n.js" defer></script>
+<script src="js/stats.js" defer></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+<style>
+  .nav__a.is-active { color: var(--amber); font-weight: 600; }
+
+  /* HERO */
+  .apply-hero {
+    position: relative;
+    min-height: 100vh;
+    padding: 70px 0 0;
+    overflow: hidden;
+    display: flex; align-items: center;
+  }
+  .apply-hero__bg {
+    position: absolute; inset: 0;
+    background: url('assets/girl_hugging_backpack.jpg') center 30% / cover no-repeat;
+    z-index: 0;
+    transform: scale(1.04);
+    animation: heroZoom 22s var(--ease) forwards;
+  }
+  @keyframes heroZoom { to { transform: scale(1); } }
+  .apply-hero__bg::after {
+    content: ""; position: absolute; inset: 0;
+    background:
+      linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.45) 45%, rgba(0,0,0,0.18) 100%),
+      linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 70%, rgba(0,0,0,0.55) 100%);
+  }
+  .apply-hero__inner {
+    position: relative; z-index: 1;
+    width: 100%;
+    padding: 0 10vw;
+    max-width: 1400px;
+  }
+  .apply-hero__content { max-width: 820px; }
+  .apply-hero .overline { color: var(--white); margin-bottom: 24px; letter-spacing: 0.2em; }
+  .apply-hero h1 {
+    color: var(--white);
+    font-size: clamp(40px, 6.8vw, 88px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 22px;
+    text-wrap: pretty;
+  }
+  .apply-hero h1 em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--amber);
+  }
+  .apply-hero p {
+    font-size: 20px;
+    color: rgba(255,255,255,0.88);
+    max-width: 560px;
+    line-height: 1.5;
+  }
+  @media (max-width: 720px) { .apply-hero__inner { padding: 0 var(--pad-x); } }
+
+  /* Apply blocks */
+  .ap-block { padding: 120px 0; }
+  .ap-block--gray { background: var(--gray); }
+  .ap-block .wrap {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 var(--pad-x);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 6vw, 80px);
+    align-items: start;
+  }
+  @media (max-width: 768px) { .ap-block .wrap { grid-template-columns: 1fr; gap: 40px; } }
+  .ap-block .ap-left { max-width: 520px; }
+  .ap-block .ap-left h2 { margin: 14px 0 22px; }
+  .ap-block .ap-left p { margin-bottom: 24px; }
+  .ap-block .ap-left .photo {
+    aspect-ratio: 4 / 3;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 6px;
+    margin-top: 28px;
+  }
+
+  /* form */
+  .apply-form {
+    background: var(--white);
+    border: 1px solid var(--gray-line);
+    border-radius: 8px;
+    padding: clamp(28px, 3vw, 40px);
+  }
+  .ap-block--gray .apply-form { background: var(--white); }
+  .apply-form .row { margin-bottom: 18px; }
+  .apply-form .row__lbl {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .apply-form .row__lbl .opt { font-weight: 400; color: var(--muted); letter-spacing: 0.02em; text-transform: none; }
+  .apply-form .fi {
+    width: 100%;
+    background: var(--white);
+    border: 1px solid var(--gray-line);
+    border-radius: 6px;
+    padding: 14px 16px;
+    color: var(--ink);
+    font-size: 15px;
+    font-family: var(--font);
+    outline: none;
+    transition: border-color .15s ease, box-shadow .15s ease;
+    -webkit-appearance: none; appearance: none;
+  }
+  .apply-form .fi::placeholder { color: var(--muted); }
+  .apply-form .fi:focus { border-color: var(--amber); box-shadow: 0 0 0 4px rgba(212,131,10,0.12); }
+  .apply-form textarea.fi { resize: vertical; min-height: 100px; }
+  .apply-form select.fi { cursor: pointer; }
+  .apply-form .fi[type="file"] { padding: 11px 16px; cursor: pointer; }
+  .apply-form .hint {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 8px;
+    line-height: 1.5;
+    font-style: italic;
+  }
+  .apply-form .btn { width: 100%; margin-top: 8px; padding: 16px 22px; }
+
+  .form-success-box {
+    display: none;
+    background: var(--amber-soft);
+    border: 1px solid var(--amber);
+    color: var(--amber-hover);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-top: 16px;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.5;
+    display: none;
+  }
+  .form-success-box.is-show { display: block; }
+
+  /* FOOTER strip */
+  .footer-cta {
+    background: var(--ink);
+    padding: 56px 0;
+    text-align: center;
+    border-bottom: 1px solid var(--gray-line-dk);
+  }
+  .footer-cta .btn { padding: 20px 42px; font-size: 17px; }
+  footer .footer__cols .reqs {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.7;
+    letter-spacing: 0.02em;
+  }
+  footer .footer__bottom-lang {
+    display: flex; gap: 2px;
+    font-family: var(--font);
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.06em;
+  }
+  footer .footer__bottom-lang button {
+    padding: 5px 7px;
+    border-radius: 4px;
+    transition: color .15s ease;
+  }
+  footer .footer__bottom-lang button:hover { color: var(--white); }
+  footer .footer__bottom-lang button.is-active { color: var(--amber); }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ NAV ═══════════════ -->
+<div class="nav-wrap" id="nav">
+  <nav class="nav">
+    <a href="garyshker.com.html" class="logo">
+      <span class="logo__mark"></span>
+      <span><span class="a">G</span>ARYSHKER.</span>
+    </a>
+    <div class="nav__items">
+      <a class="nav__a" href="about.html" data-i18n="nav.who">Кто мы</a>
+      <a class="nav__a" href="projects.html" data-i18n="nav.projects">Наши проекты</a>
+      <a class="nav__a is-active" href="apply.html" data-i18n="nav.apply">Получить помощь</a>
+      <a class="nav__a" href="support.html" data-i18n="nav.support">Поддержите нас</a>
+      <a class="nav__a" href="contacts.html" data-i18n="nav.contacts">Контакты</a>
+    </div>
+    <div class="nav__right">
+      <div class="lang">
+        <button data-lang="ru" onclick="gsi18n.switchLang('ru')" type="button">РУС</button>
+        <button data-lang="kz" onclick="gsi18n.switchLang('kz')" type="button">КАЗ</button>
+        <button data-lang="en" onclick="gsi18n.switchLang('en')" type="button">ENG</button>
+      </div>
+      <a href="support.html#donate" class="nav__cta" data-i18n="nav.cta">Поддержать</a>
+      <button class="burger" type="button" aria-label="Меню">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <line x1="3" y1="6" x2="17" y2="6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="3" y1="10" x2="17" y2="10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="3" y1="14" x2="17" y2="14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+</div>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="apply-hero" id="top">
+  <div class="apply-hero__bg"></div>
+  <div class="apply-hero__inner">
+    <div class="apply-hero__content">
+      <div class="overline rv" data-i18n="apply.hero.overline">Получить помощь</div>
+      <h1 class="rv rv-d1" data-i18n-html="apply.hero.h1">Получить рюкзак<br>для <em>ребёнка</em></h1>
+      <p class="rv rv-d2" data-i18n="apply.hero.p">Каждый год перед 1 сентября.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ BLOCK 1 — ЗАЯВКА НА РЮКЗАК ═══════════════ -->
+<section class="ap-block">
+  <div class="wrap">
+    <div class="ap-left rv">
+      <div class="overline" data-i18n="apply.b1.overline">Заявка на рюкзак</div>
+      <h2 class="h2" data-i18n-html="apply.b1.h2">Получить рюкзак<br>для <em>ребёнка</em></h2>
+      <p class="body" data-i18n="apply.b1.p">Каждый год перед 1 сентября фонд Garyshker собирает и передаёт рюкзаки с канцелярией детям из социально уязвимых семей. Если вашей семье нужна помощь — оставьте заявку. Мы свяжемся с вами.</p>
+    </div>
+
+    <div class="rv rv-d1">
+      <form class="apply-form" id="apply-form" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="apply">
+        <input type="hidden" name="bot-field">
+        <div class="row">
+          <label class="row__lbl" data-i18n="apply.b1.form.name">Имя заявителя</label>
+          <input class="fi" name="name" type="text" data-i18n="apply.b1.form.name.placeholder" placeholder="Ваше имя" required>
+        </div>
+        <div class="row">
+          <label class="row__lbl" data-i18n="apply.b1.form.phone">Телефон</label>
+          <input class="fi" name="phone" type="tel" placeholder="+7 ___ ___ __ __" required>
+        </div>
+        <div class="row">
+          <label class="row__lbl" data-i18n="apply.b1.form.city">Город</label>
+          <select class="fi" name="city" required>
+            <option value="" data-i18n="apply.b1.form.city.placeholder">Выберите город</option>
+            <option data-i18n="apply.b1.form.city.almaty">Алматы</option>
+            <option data-i18n="apply.b1.form.city.atyrau">Атырау</option>
+            <option data-i18n="apply.b1.form.city.astana">Астана</option>
+            <option data-i18n="apply.b1.form.city.karaganda">Караганда</option>
+            <option data-i18n="apply.b1.form.city.aktau">Актау</option>
+            <option data-i18n="apply.b1.form.city.other">Другой город</option>
+          </select>
+        </div>
+        <div class="row">
+          <label class="row__lbl" data-i18n="apply.b1.form.kids">Количество детей</label>
+          <input class="fi" name="kids" type="number" min="1" max="10" placeholder="1" required>
+        </div>
+        <div class="row">
+          <label class="row__lbl" data-i18n="apply.b1.form.doc">Прикрепить документ</label>
+          <input class="fi" name="doc" type="file" accept=".pdf,.jpg,.jpeg,.png">
+          <div class="hint" data-i18n="apply.b1.form.doc.hint">Справка о доходах, удостоверение многодетной семьи или другой подтверждающий документ</div>
+        </div>
+        <div class="row">
+          <label class="row__lbl"><span data-i18n="apply.b1.form.comment">Короткий комментарий</span> <span class="opt" data-i18n="apply.b1.form.comment.opt">· необязательно</span></label>
+          <textarea class="fi" name="comment" data-i18n="apply.b1.form.comment.placeholder" placeholder="Расскажите немного о ситуации..."></textarea>
+        </div>
+        <button type="submit" class="btn btn--amber">
+          <span data-i18n="apply.b1.form.btn">Отправить заявку</span>
+          <span class="arr">→</span>
+        </button>
+      </form>
+      <div class="form-success-box" id="apply-success" data-i18n="apply.b1.success">
+        ✓ Мы получили вашу заявку и свяжемся с вами в течение 3 рабочих дней
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ BLOCK 2 — ОБЩЕЕ ОБРАЩЕНИЕ ═══════════════ -->
+<section class="ap-block ap-block--gray" id="contact">
+  <div class="wrap">
+    <div class="ap-left rv">
+      <div class="overline" data-i18n="apply.b2.overline">Общее обращение</div>
+      <h2 class="h2" data-i18n-html="apply.b2.h2">Написать <em>в фонд</em></h2>
+      <p class="body" data-i18n="apply.b2.p">Если у вас есть вопрос, предложение или вы хотите рассказать свою историю — мы читаем каждое сообщение.</p>
+      <div class="photo" style="background-image: url('assets/volunteer_handing_backpack.jpg');" role="img" aria-label="Garyshker"></div>
+    </div>
+
+    <div class="rv rv-d1">
+      <form class="apply-form" id="contact-form" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact">
+        <input type="hidden" name="bot-field">
+        <div class="row">
+          <label class="row__lbl" data-i18n="apply.b2.form.name">Имя</label>
+          <input class="fi" name="name" type="text" required>
+        </div>
+        <div class="row">
+          <label class="row__lbl" data-i18n="apply.b2.form.contact">Контакт — телефон или email</label>
+          <input class="fi" name="contact" type="text" data-i18n="apply.b2.form.contact.placeholder" placeholder="+7 ___ или email@example.com" required>
+        </div>
+        <div class="row">
+          <label class="row__lbl" data-i18n="apply.b2.form.topic">Тема</label>
+          <select class="fi" name="topic" required>
+            <option value="" data-i18n="apply.b2.form.topic.placeholder">Выберите тему</option>
+            <option data-i18n="apply.b2.form.topic.backpacks">Вопрос о рюкзаках</option>
+            <option data-i18n="apply.b2.form.topic.partner">Партнёрство</option>
+            <option data-i18n="apply.b2.form.topic.volunteer">Волонтёрство</option>
+            <option data-i18n="apply.b2.form.topic.media">Медиа-запрос</option>
+            <option data-i18n="apply.b2.form.topic.story">Рассказать историю</option>
+            <option data-i18n="apply.b2.form.topic.other">Другое</option>
+          </select>
+        </div>
+        <div class="row">
+          <label class="row__lbl" data-i18n="apply.b2.form.message">Сообщение</label>
+          <textarea class="fi" name="message" rows="3" data-i18n="apply.b2.form.message.placeholder" placeholder="Расскажите о вашем запросе..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn--amber">
+          <span data-i18n="apply.b2.form.btn">Отправить сообщение</span>
+          <span class="arr">→</span>
+        </button>
+      </form>
+      <div class="form-success-box" id="contact-success" data-i18n="apply.b2.success">
+        ✓ Сообщение отправлено. Спасибо — мы читаем каждое и постараемся ответить как можно скорее
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<div class="footer-cta">
+  <a href="support.html" class="btn btn--amber">
+    <span data-i18n="footer.cta.btn">Поддержать движение</span>
+    <span class="arr">→</span>
+  </a>
+</div>
+
+<footer>
+  <div class="footer__inner">
+    <div class="footer__cols">
+      <div class="footer__col">
+        <a href="garyshker.com.html" class="logo" style="color: var(--white); font-size: 22px;">
+          <span class="logo__mark"></span>
+          <span><span class="a">G</span>ARYSHKER.</span>
+        </a>
+        <p style="margin-top: 18px; font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.55; max-width: 240px;" data-i18n="footer.sub">
+          Образовательное движение Казахстана с 2019.
+        </p>
+      </div>
+
+      <div class="footer__col">
+        <h4 data-i18n="footer.nav">Навигация</h4>
+        <ul>
+          <li><a href="about.html" data-i18n="footer.nav.who">Кто мы</a></li>
+          <li><a href="projects.html" data-i18n="footer.nav.projects">Наши проекты</a></li>
+          <li><a href="apply.html" data-i18n="footer.nav.apply">Получить помощь</a></li>
+          <li><a href="support.html" data-i18n="footer.nav.support">Поддержите нас</a></li>
+          <li><a href="contacts.html" data-i18n="footer.nav.contacts">Контакты</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4 data-i18n="footer.social">Соцсети</h4>
+        <ul>
+          <li><a href="https://youtube.com/@garyshker" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="https://instagram.com/garyshker" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="#" target="_blank" rel="noopener">TikTok</a></li>
+        </ul>
+        <div class="footer__socials">
+          <a class="footer__social" href="https://youtube.com/@garyshker" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="6" width="18" height="12" rx="3" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M10 9.5 L15 12 L10 14.5 Z" fill="currentColor"/>
+            </svg>
+          </a>
+          <a class="footer__social" href="https://instagram.com/garyshker" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/>
+              <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+            </svg>
+          </a>
+          <a class="footer__social" href="#" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M14 4 V14.5 a3.5 3.5 0 1 1 -3.5 -3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14 4 C 14 6 16 8 18 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h4 data-i18n="footer.reqs">Реквизиты</h4>
+        <div class="reqs">
+          ЧФ «Garyshker Foundation»<br>
+          IBAN · KZ127225000038329758<br>
+          БИН · 220940024982<br>
+          <br>
+          <a href="mailto:info@garyshker.com" class="a">info@garyshker.com</a><br>
+          <span data-i18n="footer.city">Алматы, Казахстан</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="footer__bottom-lang lang">
+        <button data-lang="ru" onclick="gsi18n.switchLang('ru')" type="button">РУС</button>
+        <button data-lang="kz" onclick="gsi18n.switchLang('kz')" type="button">КАЗ</button>
+        <button data-lang="en" onclick="gsi18n.switchLang('en')" type="button">ENG</button>
+      </div>
+      <div data-i18n="footer.copy">© Garyshker Foundation 2026 · Алматы</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.lang button, .footer__bottom-lang button').forEach(b => {
+    b.addEventListener('click', () => {
+      const group = b.closest('.lang, .footer__bottom-lang');
+      group.querySelectorAll('button').forEach(x => x.classList.toggle('is-active', x === b));
+    });
+  });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+  function bindSubmit(formId, boxId) {
+    const f = document.getElementById(formId);
+    const b = document.getElementById(boxId);
+    if (!f || !b) return;
+    f.addEventListener('submit', (e) => {
+      e.preventDefault();
+      f.style.display = 'none';
+      b.classList.add('is-show');
+      b.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  }
+  bindSubmit('apply-form', 'apply-success');
+  bindSubmit('contact-form', 'contact-success');
+</script>
+
+</body>
+</html>

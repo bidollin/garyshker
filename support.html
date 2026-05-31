@@ -1,0 +1,1030 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Поддержать движение · Garyshker</title>
+<meta name="description" content="Донат, партнёрство, волонтёрство, коллаборация. Каждый тенге идёт на образование детей.">
+<meta property="og:title" content="Поддержать · GARYSHKER">
+<meta property="og:url" content="https://garyshkerrr.netlify.app/support.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GARYSHKER">
+<meta property="og:image" content="https://garyshkerrr.netlify.app/assets/og_cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://garyshkerrr.netlify.app/assets/og_cover.jpg">
+<meta name="theme-color" content="#D4830A">
+<link rel="preload" as="image" href="assets/dsc07863.jpg">
+<script src="js/i18n.js" defer></script>
+<script src="js/stats.js" defer></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+<style>
+  .nav__a.is-active { color: var(--amber); font-weight: 600; }
+
+  /* HERO */
+  .sup-hero {
+    position: relative;
+    min-height: 100vh;
+    padding: 70px 0 0;
+    overflow: hidden;
+    display: flex; align-items: center;
+  }
+  .sup-hero__bg {
+    position: absolute; inset: 0;
+    background: url('assets/dsc07863.jpg') center 30% / cover no-repeat;
+    z-index: 0;
+    transform: scale(1.04);
+    animation: heroZoom 22s var(--ease) forwards;
+  }
+  @keyframes heroZoom { to { transform: scale(1); } }
+  .sup-hero__bg::after {
+    content: ""; position: absolute; inset: 0;
+    background: rgba(0,0,0,0.6);
+  }
+  .sup-hero__inner {
+    position: relative; z-index: 1;
+    width: 100%;
+    padding: 0 10vw;
+    max-width: 1400px;
+  }
+  .sup-hero__content { max-width: 880px; }
+  .sup-hero .overline { color: var(--amber); margin-bottom: 24px; letter-spacing: 0.2em; }
+  .sup-hero h1 {
+    color: var(--white);
+    font-size: clamp(40px, 6.8vw, 88px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 22px;
+    text-wrap: pretty;
+  }
+  .sup-hero h1 em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--amber);
+  }
+  .sup-hero p {
+    font-size: 20px;
+    color: rgba(255,255,255,0.88);
+    max-width: 580px;
+    line-height: 1.5;
+  }
+  @media (max-width: 720px) { .sup-hero__inner { padding: 0 var(--pad-x); } }
+
+  /* Sections */
+  .sec { padding: 120px 0; }
+  .sec--gray { background: var(--gray); }
+  .sec--ink { background: var(--ink); color: var(--white); }
+  .sec .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad-x); }
+
+  .sec h2 { margin: 14px 0 22px; }
+  .sec h2 em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--amber);
+  }
+  .sec--ink h2 { color: var(--white); }
+  .sec--ink .body { color: rgba(255,255,255,0.78); }
+
+  /* BLOCK 1 — Донат */
+  .donate-block { padding: 120px 0; background: var(--white); }
+  .donate-block .wrap { max-width: 980px; margin: 0 auto; padding: 0 var(--pad-x); }
+  .donate-block__head { text-align: center; margin-bottom: 48px; }
+  .donate-block__head h2 { font-size: clamp(36px, 4.8vw, 56px); }
+  .donate-block__head p { max-width: 560px; margin: 0 auto; }
+
+  .donate-toggle {
+    display: inline-flex;
+    background: var(--gray);
+    border-radius: 999px;
+    padding: 4px;
+    margin: 0 auto 40px;
+    gap: 0;
+  }
+  .donate-toggle-wrap { text-align: center; }
+  .donate-toggle button {
+    padding: 12px 26px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+    transition: all .2s var(--ease);
+  }
+  .donate-toggle button.is-active {
+    background: var(--ink);
+    color: var(--white);
+  }
+
+  .amount-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+  .amount-grid > :nth-child(4) { grid-column: 1 / 2; }
+  .amount-grid > :nth-child(5) { grid-column: 2 / 4; }
+  @media (max-width: 720px) {
+    .amount-grid { grid-template-columns: 1fr 1fr; }
+    .amount-grid > :nth-child(4), .amount-grid > :nth-child(5) { grid-column: auto; }
+    .amount-grid > :nth-child(5) { grid-column: 1 / 3; }
+  }
+  .amount-card {
+    background: var(--white);
+    border: 2px solid var(--gray-line);
+    border-radius: 8px;
+    padding: 24px 22px;
+    cursor: pointer;
+    transition: all .2s var(--ease);
+    text-align: left;
+    display: flex; flex-direction: column; gap: 8px;
+    user-select: none;
+  }
+  .amount-card:hover { border-color: var(--muted); }
+  .amount-card.is-on {
+    border-color: var(--amber);
+    background: var(--amber-soft);
+  }
+  .amount-card__sum {
+    font-size: clamp(22px, 2.4vw, 28px);
+    font-weight: 800;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+  }
+  .amount-card.is-on .amount-card__sum { color: var(--amber-hover); }
+  .amount-card__d {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+  .amount-card.is-on .amount-card__d { color: var(--amber-hover); }
+  .amount-card__custom {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    font-family: var(--font);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+    padding: 0;
+    margin-top: 4px;
+    display: none;
+  }
+  .amount-card.is-on .amount-card__custom { display: block; }
+
+  .pay-methods {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  @media (max-width: 520px) { .pay-methods { grid-template-columns: 1fr; } }
+  .pay-method {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    background: var(--white);
+    border: 1px solid var(--gray-line);
+    border-radius: 8px;
+    padding: 16px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    cursor: pointer;
+    transition: all .18s var(--ease);
+  }
+  .pay-method:hover { border-color: var(--ink); }
+  .pay-method.is-on { background: var(--ink); color: var(--white); border-color: var(--ink); }
+  .pay-method__ico {
+    width: 22px; height: 22px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-weight: 800;
+    background: var(--amber);
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 12px;
+  }
+  .pay-method.is-on .pay-method__ico { background: var(--white); color: var(--ink); }
+
+  .donate-cta {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: var(--amber);
+    color: var(--white);
+    padding: 20px 24px;
+    border-radius: 999px;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.005em;
+    transition: all .18s var(--ease);
+  }
+  .donate-cta:hover { background: var(--amber-hover); transform: translateY(-1px); }
+  .donate-cta .arr { display: inline-block; margin-left: 6px; transition: transform .15s ease; }
+  .donate-cta:hover .arr { transform: translateX(4px); }
+
+  .reqs-fine {
+    margin-top: 22px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
+
+  /* BLOCK 2 — Партнёрство */
+  .part-block { padding: 120px 0; background: var(--gray); }
+  .part-block .wrap {
+    max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad-x);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 6vw, 80px);
+    align-items: start;
+  }
+  @media (max-width: 768px) { .part-block .wrap { grid-template-columns: 1fr; gap: 40px; } }
+  .part-block__left { max-width: 520px; }
+  .perks {
+    list-style: none;
+    margin: 28px 0 0;
+    padding: 0;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .perks li {
+    display: flex; align-items: flex-start; gap: 14px;
+    font-size: 16px;
+    color: var(--text);
+    line-height: 1.5;
+  }
+  .perks li::before {
+    content: "✓";
+    flex-shrink: 0;
+    width: 26px; height: 26px;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--amber);
+    color: var(--white);
+    border-radius: 99px;
+    font-size: 13px;
+    font-weight: 800;
+    margin-top: 2px;
+  }
+
+  /* shared form */
+  .sup-form {
+    background: var(--white);
+    border: 1px solid var(--gray-line);
+    border-radius: 8px;
+    padding: clamp(28px, 3vw, 40px);
+    box-shadow: 0 18px 40px -24px rgba(17,17,17,0.12);
+  }
+  .sec--ink .sup-form {
+    background: rgba(255,255,255,0.04);
+    border-color: rgba(255,255,255,0.16);
+    box-shadow: none;
+  }
+  .sup-form .row { margin-bottom: 18px; }
+  .sup-form .row__lbl {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .sec--ink .sup-form .row__lbl { color: var(--white); }
+  .sup-form .row__lbl .opt { font-weight: 400; color: var(--muted); letter-spacing: 0.02em; text-transform: none; }
+  .sec--ink .sup-form .row__lbl .opt { color: rgba(255,255,255,0.55); }
+  .sup-form .fi {
+    width: 100%;
+    background: var(--white);
+    border: 1px solid var(--gray-line);
+    border-radius: 6px;
+    padding: 14px 16px;
+    color: var(--ink);
+    font-size: 15px;
+    font-family: var(--font);
+    outline: none;
+    transition: border-color .15s ease, box-shadow .15s ease;
+    -webkit-appearance: none; appearance: none;
+  }
+  .sec--ink .sup-form .fi {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.18);
+    color: var(--white);
+  }
+  .sec--ink .sup-form .fi::placeholder { color: rgba(255,255,255,0.5); }
+  .sup-form .fi::placeholder { color: var(--muted); }
+  .sup-form .fi:focus { border-color: var(--amber); box-shadow: 0 0 0 4px rgba(212,131,10,0.12); }
+  .sup-form textarea.fi { resize: vertical; min-height: 100px; }
+  .sup-form select.fi { cursor: pointer; }
+  .sup-form .btn { width: 100%; margin-top: 8px; padding: 16px 22px; }
+  .form-success-box {
+    display: none;
+    background: var(--amber-soft);
+    border: 1px solid var(--amber);
+    color: var(--amber-hover);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-top: 16px;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+  .form-success-box.is-show { display: block; }
+  .sec--ink .form-success-box {
+    background: rgba(212,131,10,0.18);
+    border-color: var(--amber);
+    color: var(--amber);
+  }
+
+  /* BLOCK 3 — Волонтёрство */
+  .vol-block { padding: 120px 0; background: var(--white); }
+  .vol-block .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad-x); }
+  .vol-block__head { max-width: 720px; margin-bottom: 40px; }
+
+  .skill-chips {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    margin-bottom: 56px;
+  }
+  .skill-chip {
+    display: flex; flex-direction: column; gap: 4px;
+    background: var(--white);
+    border: 1px solid var(--gray-line);
+    border-radius: 12px;
+    padding: 16px 22px;
+    cursor: pointer;
+    transition: all .18s var(--ease);
+    user-select: none;
+    max-width: 320px;
+  }
+  .skill-chip:hover { border-color: var(--muted); }
+  .skill-chip.is-on {
+    background: var(--amber);
+    border-color: var(--amber);
+    color: var(--white);
+  }
+  .skill-chip__t {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+  .skill-chip.is-on .skill-chip__t { color: var(--white); }
+  .skill-chip__d {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+  .skill-chip.is-on .skill-chip__d { color: rgba(255,255,255,0.9); }
+  .skill-chip input { display: none; }
+
+  .vol-form-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 6vw, 64px);
+    align-items: start;
+  }
+  @media (max-width: 768px) { .vol-form-wrap { grid-template-columns: 1fr; gap: 32px; } }
+  .vol-form-wrap__intro {
+    max-width: 420px;
+  }
+  .vol-form-wrap__intro h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+
+  /* BLOCK 4 — Коллаборация */
+  .collab-block { padding: 120px 0; background: var(--ink); color: var(--white); }
+  .collab-block .wrap { max-width: 760px; margin: 0 auto; padding: 0 var(--pad-x); }
+  .collab-block__head { text-align: center; margin-bottom: 48px; }
+  .collab-block__head .overline { color: var(--amber); margin-bottom: 14px; }
+  .collab-block__head h2 { color: var(--white); margin: 14px 0 18px; }
+  .collab-block__head h2 em { color: var(--amber); }
+  .collab-block__head p { color: rgba(255,255,255,0.78); max-width: 520px; margin: 0 auto; }
+
+  /* BLOCK 5 — Отчёты */
+  .reports-block { padding: 120px 0; background: var(--cream, #faf8f4); }
+  .reports-block .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad-x); }
+  .reports-block .overline { color: var(--amber); margin-bottom: 14px; }
+  .reports-block h2 { margin: 14px 0 18px; }
+  .reports-block h2 em { color: var(--amber); }
+  .reports-block > .wrap > .body { color: var(--muted); max-width: 560px; margin-bottom: 64px; }
+  .reports__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  @media (max-width: 900px) { .reports__grid { grid-template-columns: 1fr; max-width: 480px; } }
+  .report-card {
+    background: var(--white);
+    border-radius: 20px;
+    border: 1px solid var(--gray-line);
+    padding: 32px 28px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .report-card__year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--amber);
+    text-transform: uppercase;
+  }
+  .report-card__kpi { display: flex; align-items: baseline; gap: 8px; }
+  .report-card__kpi-n {
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+  .report-card__kpi-l { font-size: 14px; color: var(--muted); line-height: 1.3; }
+  .report-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  .report-table td { padding: 6px 0; vertical-align: top; }
+  .report-table td:first-child { color: var(--ink); width: 60%; }
+  .report-table td:last-child { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink); font-weight: 500; white-space: nowrap; }
+  .report-table tr { border-bottom: 1px solid rgba(0,0,0,0.06); }
+  .report-table tr:last-child { border-bottom: none; }
+  .report-table tr.income td { color: var(--muted); font-size: 12px; padding-bottom: 10px; }
+  .report-table tr.income td:last-child { font-weight: 600; color: var(--ink); }
+  .report-table tr.total td { font-weight: 700; padding-top: 10px; border-top: 2px solid var(--gray-line); border-bottom: none; }
+  .report-table tr.balance td { color: var(--amber); font-weight: 700; font-size: 13px; }
+
+  /* FOOTER strip + lang */
+  .footer-cta {
+    background: var(--ink);
+    padding: 56px 0;
+    text-align: center;
+    border-bottom: 1px solid var(--gray-line-dk);
+  }
+  .footer-cta .btn { padding: 20px 42px; font-size: 17px; }
+  footer .footer__cols .reqs {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.7;
+    letter-spacing: 0.02em;
+  }
+  footer .footer__bottom-lang {
+    display: flex; gap: 2px;
+    font-family: var(--font);
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.06em;
+  }
+  footer .footer__bottom-lang button {
+    padding: 5px 7px;
+    border-radius: 4px;
+    transition: color .15s ease;
+  }
+  footer .footer__bottom-lang button:hover { color: var(--white); }
+  footer .footer__bottom-lang button.is-active { color: var(--amber); }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ NAV ═══════════════ -->
+<div class="nav-wrap" id="nav">
+  <nav class="nav">
+    <a href="garyshker.com.html" class="logo">
+      <span class="logo__mark"></span>
+      <span><span class="a">G</span>ARYSHKER.</span>
+    </a>
+    <div class="nav__items">
+      <a class="nav__a" href="about.html" data-i18n="nav.who">Кто мы</a>
+      <a class="nav__a" href="projects.html" data-i18n="nav.projects">Наши проекты</a>
+      <a class="nav__a" href="apply.html" data-i18n="nav.apply">Получить помощь</a>
+      <a class="nav__a is-active" href="support.html" data-i18n="nav.support">Поддержите нас</a>
+      <a class="nav__a" href="contacts.html" data-i18n="nav.contacts">Контакты</a>
+    </div>
+    <div class="nav__right">
+      <div class="lang">
+        <button data-lang="ru" onclick="gsi18n.switchLang('ru')" type="button">РУС</button>
+        <button data-lang="kz" onclick="gsi18n.switchLang('kz')" type="button">КАЗ</button>
+        <button data-lang="en" onclick="gsi18n.switchLang('en')" type="button">ENG</button>
+      </div>
+      <a href="#donate" class="nav__cta" data-i18n="nav.cta">Поддержать</a>
+      <button class="burger" type="button" aria-label="Меню">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <line x1="3" y1="6" x2="17" y2="6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="3" y1="10" x2="17" y2="10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="3" y1="14" x2="17" y2="14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+</div>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="sup-hero" id="top">
+  <div class="sup-hero__bg"></div>
+  <div class="sup-hero__inner">
+    <div class="sup-hero__content">
+      <div class="overline rv" data-i18n="sup.hero.overline">Поддержать движение</div>
+      <h1 class="rv rv-d1" data-i18n-html="sup.hero.h1">Каждый тенге меняет<br><em>жизнь ребёнка</em></h1>
+      <p class="rv rv-d2" data-i18n="sup.hero.p">Никаких посредников — только прямое действие.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ BLOCK 1 — ДОНАТ ═══════════════ -->
+<section class="donate-block" id="donate">
+  <div class="wrap">
+    <div class="donate-block__head rv">
+      <div class="overline" data-i18n="sup.donate.overline">Донат</div>
+      <h2 class="h2" data-i18n-html="sup.donate.h2">Поддержать <em>движение</em></h2>
+      <p class="body" data-i18n="sup.donate.p">Каждый тенге идёт на образование детей. Никаких посредников — только прямое действие.</p>
+    </div>
+
+    <div class="donate-toggle-wrap rv">
+      <div class="donate-toggle" role="tablist">
+        <button class="is-active" data-mode="once" type="button" data-i18n="sup.donate.toggle.once">Разовый донат</button>
+        <button data-mode="monthly" type="button" data-i18n="sup.donate.toggle.monthly">Ежемесячная поддержка</button>
+      </div>
+    </div>
+
+    <div class="amount-grid rv">
+      <button class="amount-card is-on" data-amount="8000" type="button">
+        <div class="amount-card__sum">8 000 ₸</div>
+        <div class="amount-card__d" data-i18n="sup.donate.d1">Канцтовары для одного ребёнка</div>
+      </button>
+      <button class="amount-card" data-amount="15000" type="button">
+        <div class="amount-card__sum">15 000 ₸</div>
+        <div class="amount-card__d" data-i18n="sup.donate.d2">Полный рюкзак для одного ребёнка</div>
+      </button>
+      <button class="amount-card" data-amount="30000" type="button">
+        <div class="amount-card__sum">30 000 ₸</div>
+        <div class="amount-card__d" data-i18n="sup.donate.d3">Рюкзаки для двух детей</div>
+      </button>
+      <button class="amount-card" data-amount="150000" type="button">
+        <div class="amount-card__sum">150 000 ₸</div>
+        <div class="amount-card__d" data-i18n="sup.donate.d4">Рюкзаки для десяти детей</div>
+      </button>
+      <button class="amount-card" data-amount="custom" type="button">
+        <div class="amount-card__sum" data-i18n="sup.donate.custom">Своя сумма</div>
+        <input class="amount-card__custom" type="number" data-i18n="sup.donate.custom.placeholder" placeholder="Введите сумму, ₸" min="100">
+      </button>
+    </div>
+
+    <div class="pay-methods rv">
+      <button class="pay-method is-on" data-pay="kaspi" type="button">
+        <span class="pay-method__ico">K</span>
+        <span>Kaspi</span>
+      </button>
+      <button class="pay-method" data-pay="card" type="button">
+        <span class="pay-method__ico">₸</span>
+        <span data-i18n="sup.donate.pay.card">Картой</span>
+      </button>
+    </div>
+
+    <a href="#" class="donate-cta rv" id="donate-cta">
+      <span data-i18n="sup.donate.cta">Поддержать</span>
+      <span class="arr">→</span>
+    </a>
+
+    <div class="reqs-fine rv" data-i18n="sup.donate.reqs">
+      Реквизиты: ЧФ «Garyshker Foundation» · IBAN KZ127225000038329758 · БИН 220940024982
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ BLOCK 2 — ПАРТНЁРСТВО ═══════════════ -->
+<section class="part-block" id="partnership">
+  <div class="wrap">
+    <div class="part-block__left rv">
+      <div class="overline" data-i18n="sup.part.overline">Партнёрство</div>
+      <h2 class="h2" data-i18n-html="sup.part.h2">Ваш бренд — часть образовательного <em>движения страны</em></h2>
+      <p class="body" data-i18n="sup.part.p">Партнёрство с Garyshker — это готовая ESG-история с измеримым результатом. Конкретные дети, конкретные регионы, реальные цифры. Мы открыты к разным форматам партнёрства в сфере образования — напишите нам и мы найдём то что подойдёт именно вам.</p>
+      <ul class="perks">
+        <li data-i18n="sup.part.perk1">Реальный измеримый импакт — конкретные дети, школы, регионы</li>
+        <li data-i18n="sup.part.perk2">Готовый медиаматериал для ESG-отчётности</li>
+        <li data-i18n="sup.part.perk3">Доступ к молодой казахскоязычной аудитории</li>
+        <li data-i18n="sup.part.perk4">Часть истории которая меняет образование в Казахстане</li>
+      </ul>
+    </div>
+
+    <div class="rv rv-d1">
+      <form class="sup-form" id="partner-form" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="partner">
+        <input type="hidden" name="bot-field">
+        <div class="row">
+          <label class="row__lbl" data-i18n="sup.part.form.company">Название компании</label>
+          <input class="fi" name="company" type="text" required>
+        </div>
+        <div class="row">
+          <label class="row__lbl" data-i18n="sup.part.form.name">Имя и должность</label>
+          <input class="fi" name="name" type="text" required>
+        </div>
+        <div class="row">
+          <label class="row__lbl" data-i18n="sup.part.form.contact">Email / телефон</label>
+          <input class="fi" name="contact" type="text" required>
+        </div>
+        <div class="row">
+          <label class="row__lbl"><span data-i18n="sup.part.form.comment">Комментарий</span> <span class="opt" data-i18n="sup.part.form.comment.opt">· необязательно</span></label>
+          <textarea class="fi" name="comment" data-i18n="sup.part.form.comment.placeholder" placeholder="Какой формат партнёрства вас интересует?"></textarea>
+        </div>
+        <button type="submit" class="btn btn--amber">
+          <span data-i18n="sup.part.form.btn">Обсудить партнёрство</span>
+          <span class="arr">→</span>
+        </button>
+      </form>
+      <div class="form-success-box" id="partner-success" data-i18n="sup.part.success">
+        ✓ Заявка отправлена. Мы свяжемся с вами в ближайшие дни.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ BLOCK 3 — ВОЛОНТЁРСТВО ═══════════════ -->
+<section class="vol-block" id="volunteer">
+  <div class="wrap">
+    <div class="vol-block__head rv">
+      <div class="overline" data-i18n="sup.vol.overline">Волонтёрство</div>
+      <h2 class="h2" data-i18n-html="sup.vol.h2">Стать <em>волонтёром</em></h2>
+      <p class="body" data-i18n="sup.vol.p">Garyshker — это люди. Если вы хотите быть частью движения — оставьте заявку.</p>
+    </div>
+
+    <div class="skill-chips rv">
+      <label class="skill-chip">
+        <input type="checkbox" name="skills" value="design">
+        <span class="skill-chip__t" data-i18n="sup.vol.skill.design.t">Дизайн</span>
+        <span class="skill-chip__d" data-i18n="sup.vol.skill.design.d">создаём визуальный язык движения</span>
+      </label>
+      <label class="skill-chip">
+        <input type="checkbox" name="skills" value="media">
+        <span class="skill-chip__t" data-i18n="sup.vol.skill.media.t">Фото и видео</span>
+        <span class="skill-chip__d" data-i18n="sup.vol.skill.media.d">документируем истории которые меняют жизнь</span>
+      </label>
+      <label class="skill-chip">
+        <input type="checkbox" name="skills" value="text">
+        <span class="skill-chip__t" data-i18n="sup.vol.skill.text.t">Текст и контент</span>
+        <span class="skill-chip__d" data-i18n="sup.vol.skill.text.d">рассказываем о том что важно</span>
+      </label>
+      <label class="skill-chip">
+        <input type="checkbox" name="skills" value="events">
+        <span class="skill-chip__t" data-i18n="sup.vol.skill.events.t">Организация мероприятий</span>
+        <span class="skill-chip__d" data-i18n="sup.vol.skill.events.d">создаём пространство для людей</span>
+      </label>
+      <label class="skill-chip">
+        <input type="checkbox" name="skills" value="mentor">
+        <span class="skill-chip__t" data-i18n="sup.vol.skill.mentor.t">Преподавание и менторство</span>
+        <span class="skill-chip__d" data-i18n="sup.vol.skill.mentor.d">передаём знания тем кто в них нуждается</span>
+      </label>
+      <label class="skill-chip">
+        <input type="checkbox" name="skills" value="tech">
+        <span class="skill-chip__t" data-i18n="sup.vol.skill.tech.t">Технологии</span>
+        <span class="skill-chip__d" data-i18n="sup.vol.skill.tech.d">строим инфраструктуру движения</span>
+      </label>
+      <label class="skill-chip">
+        <input type="checkbox" name="skills" value="logistics">
+        <span class="skill-chip__t" data-i18n="sup.vol.skill.logistics.t">Логистика</span>
+        <span class="skill-chip__d" data-i18n="sup.vol.skill.logistics.d">доставляем помощь туда где она нужна</span>
+      </label>
+      <label class="skill-chip">
+        <input type="checkbox" name="skills" value="other">
+        <span class="skill-chip__t" data-i18n="sup.vol.skill.other.t">Другое</span>
+        <span class="skill-chip__d" data-i18n="sup.vol.skill.other.d">у вас есть что-то своё</span>
+      </label>
+    </div>
+
+    <div class="vol-form-wrap">
+      <div class="vol-form-wrap__intro rv">
+        <h3 data-i18n="sup.vol.form.title">Заполните анкету волонтёра</h3>
+        <p class="body" style="font-size: 15px;" data-i18n="sup.vol.form.intro">Выбранные направления выше попадут в заявку вместе с вашими контактами. Мы свяжемся и расскажем о ближайших возможностях участия.</p>
+      </div>
+      <div class="rv rv-d1">
+        <form class="sup-form" id="volunteer-form" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="volunteer">
+          <input type="hidden" name="bot-field">
+          <div class="row">
+            <label class="row__lbl" data-i18n="sup.vol.form.name">Имя</label>
+            <input class="fi" name="name" type="text" required>
+          </div>
+          <div class="row">
+            <label class="row__lbl" data-i18n="sup.vol.form.city">Город</label>
+            <input class="fi" name="city" type="text" required>
+          </div>
+          <div class="row">
+            <label class="row__lbl" data-i18n="sup.vol.form.contact">Телефон / email</label>
+            <input class="fi" name="contact" type="text" required>
+          </div>
+          <div class="row">
+            <label class="row__lbl"><span data-i18n="sup.vol.form.comment">Комментарий</span> <span class="opt" data-i18n="sup.vol.form.comment.opt">· необязательно</span></label>
+            <textarea class="fi" name="comment" data-i18n="sup.vol.form.comment.placeholder" placeholder="необязательно"></textarea>
+          </div>
+          <button type="submit" class="btn btn--amber">
+            <span data-i18n="sup.vol.form.btn">Отправить заявку</span>
+            <span class="arr">→</span>
+          </button>
+        </form>
+        <div class="form-success-box" id="volunteer-success" data-i18n="sup.vol.success">
+          ✓ Спасибо. Мы свяжемся с вами и расскажем о ближайших возможностях.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ BLOCK 4 — КОЛЛАБОРАЦИЯ ═══════════════ -->
+<section class="collab-block" id="collab">
+  <div class="wrap">
+    <div class="collab-block__head rv">
+      <div class="overline" data-i18n="sup.collab.overline">Коллаборация</div>
+      <h2 class="h2" data-i18n-html="sup.collab.h2">Предложить <em>идею</em></h2>
+      <p data-i18n="sup.collab.p">Есть идея как вместе сделать что-то важное? Мы открыты к любым предложениям.</p>
+    </div>
+
+    <div class="rv rv-d1">
+      <form class="sup-form" id="collab-form" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="collab">
+        <input type="hidden" name="bot-field">
+        <div class="row">
+          <label class="row__lbl" data-i18n="sup.collab.form.name">Имя / организация</label>
+          <input class="fi" name="name" type="text" required>
+        </div>
+        <div class="row">
+          <label class="row__lbl" data-i18n="sup.collab.form.type">Тип предложения</label>
+          <select class="fi" name="type" required>
+            <option value="" data-i18n="sup.collab.form.type.placeholder">Выберите тип</option>
+            <option data-i18n="sup.collab.form.type.joint">Совместный проект</option>
+            <option data-i18n="sup.collab.form.type.media">Медиапартнёрство</option>
+            <option data-i18n="sup.collab.form.type.vol">Волонтёрство</option>
+            <option data-i18n="sup.collab.form.type.other">Другое</option>
+          </select>
+        </div>
+        <div class="row">
+          <label class="row__lbl" data-i18n="sup.collab.form.idea">Описание идеи</label>
+          <textarea class="fi" name="idea" rows="5" required></textarea>
+        </div>
+        <div class="row">
+          <label class="row__lbl" data-i18n="sup.collab.form.contact">Контакт</label>
+          <input class="fi" name="contact" type="text" data-i18n="sup.collab.form.contact.placeholder" placeholder="email или телефон" required>
+        </div>
+        <button type="submit" class="btn btn--amber">
+          <span data-i18n="sup.collab.form.btn">Отправить предложение</span>
+          <span class="arr">→</span>
+        </button>
+      </form>
+      <div class="form-success-box" id="collab-success" data-i18n="sup.collab.success">
+        ✓ Идея отправлена. Прочитаем внимательно и ответим — обычно в течение недели.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ BLOCK 5 — ОТЧЁТЫ ═══════════════ -->
+<section class="reports-block" id="reports">
+  <div class="wrap">
+    <div class="overline rv" data-i18n="sup.reports.overline">Прозрачность</div>
+    <h2 class="h2 rv rv-d1" data-i18n-html="sup.reports.h2">Отчёты по проекту <em>РюкзакKit</em></h2>
+    <p class="body rv rv-d2" data-i18n="sup.reports.p">Каждый год мы публикуем полный финансовый отчёт. Ниже — данные о поступлениях и расходах за каждый год акции.</p>
+    <div class="reports__grid">
+
+      <!-- 2021 -->
+      <div class="report-card rv">
+        <div class="report-card__year">РюкзакKit · 2021</div>
+        <div class="report-card__kpi">
+          <div class="report-card__kpi-n">370</div>
+          <div class="report-card__kpi-l" data-i18n="sup.reports.backpacks">рюкзаков<br>роздано</div>
+        </div>
+        <table class="report-table">
+          <tr class="income"><td data-i18n="sup.reports.income">Поступления</td><td>3 851 816 ₸</td></tr>
+          <tr><td data-i18n="sup.reports.backpacks.row">Рюкзаки</td><td>859 500 ₸</td></tr>
+          <tr><td data-i18n="sup.reports.stationery">Канцтовары</td><td>2 198 871 ₸</td></tr>
+          <tr><td data-i18n="sup.reports.patches">Нашивки</td><td>203 500 ₸</td></tr>
+          <tr><td data-i18n="sup.reports.stickers">Стикерпаки</td><td>111 000 ₸</td></tr>
+          <tr><td data-i18n="sup.reports.logistics">Логистика</td><td>96 020 ₸</td></tr>
+          <tr><td data-i18n="sup.reports.other">Прочее</td><td>83 195 ₸</td></tr>
+          <tr class="total"><td data-i18n="sup.reports.total">Итого расходов</td><td>3 552 086 ₸</td></tr>
+          <tr class="balance"><td data-i18n="sup.reports.balance">Остаток →&nbsp;2022</td><td>299 730 ₸</td></tr>
+        </table>
+      </div>
+
+      <!-- 2022 -->
+      <div class="report-card rv rv-d1">
+        <div class="report-card__year">РюкзакKit · 2022</div>
+        <div class="report-card__kpi">
+          <div class="report-card__kpi-n">400</div>
+          <div class="report-card__kpi-l" data-i18n="sup.reports.backpacks">рюкзаков<br>роздано</div>
+        </div>
+        <table class="report-table">
+          <tr class="income"><td data-i18n="sup.reports.income">Поступления</td><td>4 299 730 ₸</td></tr>
+          <tr><td data-i18n="sup.reports.backpacks.row">Рюкзаки</td><td>1 049 400 ₸</td></tr>
+          <tr><td data-i18n="sup.reports.stationery">Канцтовары</td><td>2 862 902 ₸</td></tr>
+          <tr><td data-i18n="sup.reports.patches">Нашивки</td><td>99 265 ₸</td></tr>
+          <tr><td data-i18n="sup.reports.logistics">Логистика</td><td>139 610 ₸</td></tr>
+          <tr><td data-i18n="sup.reports.other">Прочее</td><td>30 900 ₸</td></tr>
+          <tr class="total"><td data-i18n="sup.reports.total">Итого расходов</td><td>4 182 077 ₸</td></tr>
+          <tr class="balance"><td data-i18n="sup.reports.balance">Остаток →&nbsp;2023</td><td>117 653 ₸</td></tr>
+        </table>
+      </div>
+
+      <!-- 2023 -->
+      <div class="report-card rv rv-d2">
+        <div class="report-card__year">РюкзакKit · 2023</div>
+        <div class="report-card__kpi">
+          <div class="report-card__kpi-n">500</div>
+          <div class="report-card__kpi-l" data-i18n="sup.reports.backpacks">рюкзаков<br>роздано</div>
+        </div>
+        <table class="report-table">
+          <tr class="income"><td>Поступления (KMF)</td><td>6 000 000 ₸</td></tr>
+          <tr><td data-i18n="sup.reports.backpacks.row">Рюкзаки</td><td>2 113 500 ₸</td></tr>
+          <tr><td data-i18n="sup.reports.stationery">Канцтовары</td><td>3 161 750 ₸</td></tr>
+          <tr><td data-i18n="sup.reports.branding">Нанесение и стикеры</td><td>335 000 ₸</td></tr>
+          <tr><td data-i18n="sup.reports.logistics">Логистика</td><td>202 421 ₸</td></tr>
+          <tr><td data-i18n="sup.reports.other">Прочее</td><td>152 326 ₸</td></tr>
+          <tr class="total"><td data-i18n="sup.reports.total">Итого расходов</td><td>5 964 997 ₸</td></tr>
+          <tr class="balance"><td data-i18n="sup.reports.balance.last">Остаток</td><td>35 003 ₸</td></tr>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<div class="footer-cta">
+  <a href="#donate" class="btn btn--amber">
+    <span data-i18n="footer.cta.btn">Поддержать движение</span>
+    <span class="arr">→</span>
+  </a>
+</div>
+
+<footer>
+  <div class="footer__inner">
+    <div class="footer__cols">
+      <div class="footer__col">
+        <a href="garyshker.com.html" class="logo" style="color: var(--white); font-size: 22px;">
+          <span class="logo__mark"></span>
+          <span><span class="a">G</span>ARYSHKER.</span>
+        </a>
+        <p style="margin-top: 18px; font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.55; max-width: 240px;" data-i18n="footer.sub">
+          Образовательное движение Казахстана с 2019.
+        </p>
+      </div>
+
+      <div class="footer__col">
+        <h4 data-i18n="footer.nav">Навигация</h4>
+        <ul>
+          <li><a href="about.html" data-i18n="footer.nav.who">Кто мы</a></li>
+          <li><a href="projects.html" data-i18n="footer.nav.projects">Наши проекты</a></li>
+          <li><a href="apply.html" data-i18n="footer.nav.apply">Получить помощь</a></li>
+          <li><a href="support.html" data-i18n="footer.nav.support">Поддержите нас</a></li>
+          <li><a href="contacts.html" data-i18n="footer.nav.contacts">Контакты</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4 data-i18n="footer.social">Соцсети</h4>
+        <ul>
+          <li><a href="https://youtube.com/@garyshker" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="https://instagram.com/garyshker" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="#" target="_blank" rel="noopener">TikTok</a></li>
+        </ul>
+        <div class="footer__socials">
+          <a class="footer__social" href="https://youtube.com/@garyshker" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="6" width="18" height="12" rx="3" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M10 9.5 L15 12 L10 14.5 Z" fill="currentColor"/>
+            </svg>
+          </a>
+          <a class="footer__social" href="https://instagram.com/garyshker" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/>
+              <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+            </svg>
+          </a>
+          <a class="footer__social" href="#" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M14 4 V14.5 a3.5 3.5 0 1 1 -3.5 -3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14 4 C 14 6 16 8 18 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h4 data-i18n="footer.reqs">Реквизиты</h4>
+        <div class="reqs">
+          ЧФ «Garyshker Foundation»<br>
+          IBAN · KZ127225000038329758<br>
+          БИН · 220940024982<br>
+          <br>
+          <a href="mailto:info@garyshker.com" class="a">info@garyshker.com</a><br>
+          <span data-i18n="footer.city">Алматы, Казахстан</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="footer__bottom-lang lang">
+        <button data-lang="ru" onclick="gsi18n.switchLang('ru')" type="button">РУС</button>
+        <button data-lang="kz" onclick="gsi18n.switchLang('kz')" type="button">КАЗ</button>
+        <button data-lang="en" onclick="gsi18n.switchLang('en')" type="button">ENG</button>
+      </div>
+      <div data-i18n="footer.copy">© Garyshker Foundation 2026 · Алматы</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Lang switch
+  document.querySelectorAll('.lang button, .footer__bottom-lang button').forEach(b => {
+    b.addEventListener('click', () => {
+      const group = b.closest('.lang, .footer__bottom-lang');
+      group.querySelectorAll('button').forEach(x => x.classList.toggle('is-active', x === b));
+    });
+  });
+
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+  // Donate toggle (once / monthly)
+  document.querySelectorAll('.donate-toggle button').forEach(b => {
+    b.addEventListener('click', () => {
+      document.querySelectorAll('.donate-toggle button').forEach(x => x.classList.toggle('is-active', x === b));
+    });
+  });
+
+  // Amount cards (single select)
+  document.querySelectorAll('.amount-card').forEach(c => {
+    c.addEventListener('click', () => {
+      document.querySelectorAll('.amount-card').forEach(x => x.classList.toggle('is-on', x === c));
+      const input = c.querySelector('.amount-card__custom');
+      if (input) setTimeout(() => input.focus(), 80);
+    });
+  });
+  // Stop card click when typing in custom input
+  document.querySelectorAll('.amount-card__custom').forEach(i => {
+    i.addEventListener('click', e => e.stopPropagation());
+  });
+
+  // Payment method (single)
+  document.querySelectorAll('.pay-method').forEach(p => {
+    p.addEventListener('click', () => {
+      document.querySelectorAll('.pay-method').forEach(x => x.classList.toggle('is-on', x === p));
+    });
+  });
+
+  // Skill chips (multi-select)
+  document.querySelectorAll('.skill-chip').forEach(c => {
+    c.addEventListener('click', (e) => {
+      if (e.target.tagName === 'INPUT') return;
+      c.classList.toggle('is-on');
+      const i = c.querySelector('input');
+      if (i) i.checked = c.classList.contains('is-on');
+    });
+  });
+
+  // Donate CTA — fake action
+  const cta = document.getElementById('donate-cta');
+  if (cta) {
+    cta.addEventListener('click', (e) => {
+      e.preventDefault();
+      cta.querySelector('span:first-child').textContent = 'Спасибо! Перенаправляем…';
+      setTimeout(() => {
+        cta.querySelector('span:first-child').textContent = 'Поддержать';
+      }, 2400);
+    });
+  }
+
+  // Forms
+  function bindSubmit(formId, boxId) {
+    const f = document.getElementById(formId);
+    const b = document.getElementById(boxId);
+    if (!f || !b) return;
+    f.addEventListener('submit', (e) => {
+      e.preventDefault();
+      f.style.display = 'none';
+      b.classList.add('is-show');
+    });
+  }
+  bindSubmit('partner-form', 'partner-success');
+  bindSubmit('volunteer-form', 'volunteer-success');
+  bindSubmit('collab-form', 'collab-success');
+</script>
+
+</body>
+</html>

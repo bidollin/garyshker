@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Контакты · Garyshker</title>
+<meta name="description" content="Свяжитесь с образовательным движением Garyshker. Партнёрство, вопросы, медиа — мы всегда на связи.">
+<meta property="og:title" content="Контакты · GARYSHKER">
+<meta property="og:url" content="https://garyshkerrr.netlify.app/contacts.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GARYSHKER">
+<meta property="og:image" content="https://garyshkerrr.netlify.app/assets/og_cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://garyshkerrr.netlify.app/assets/og_cover.jpg">
+<meta name="theme-color" content="#D4830A">
+<script src="js/i18n.js" defer></script>
+<script src="js/stats.js" defer></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+<style>
+  .nav__a.is-active { color: var(--amber); font-weight: 600; }
+
+  /* ── HERO ── */
+  .contacts-hero {
+    position: relative;
+    background: var(--ink);
+    padding: 140px 0 100px;
+    overflow: hidden;
+  }
+  .contacts-hero::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 60% 50%, rgba(212,131,10,0.10) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .contacts-hero__inner {
+    position: relative; z-index: 1;
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 var(--pad-x);
+  }
+  .contacts-hero .overline { color: var(--amber); margin-bottom: 20px; letter-spacing: 0.2em; }
+  .contacts-hero h1 {
+    color: var(--white);
+    font-size: clamp(44px, 7vw, 88px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 20px;
+    max-width: 700px;
+  }
+  .contacts-hero h1 em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--amber);
+  }
+  .contacts-hero p {
+    font-size: 20px;
+    color: rgba(255,255,255,0.7);
+    max-width: 480px;
+    line-height: 1.5;
+  }
+
+  /* ── MAIN CONTENT ── */
+  .contacts-body {
+    background: var(--white);
+    padding: 100px 0;
+  }
+  .contacts-body__inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 var(--pad-x);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  /* ── CONTACT CARDS ── */
+  .contacts-cards { display: flex; flex-direction: column; gap: 20px; }
+  .contact-card {
+    border: 1.5px solid var(--gray-line);
+    border-radius: 16px;
+    padding: 28px 32px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  .contact-card:hover { border-color: var(--amber); box-shadow: 0 4px 24px rgba(212,131,10,0.08); }
+  .contact-card__icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: rgba(212,131,10,0.10);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    color: var(--amber);
+  }
+  .contact-card__icon svg { width: 22px; height: 22px; }
+  .contact-card__label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .contact-card__value {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .contact-card__value a { color: var(--ink); }
+  .contact-card__value a:hover { color: var(--amber); }
+
+  /* ── SOCIALS ROW ── */
+  .contacts-socials {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+  }
+  .contacts-social-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 18px;
+    border: 1.5px solid var(--gray-line);
+    border-radius: 100px;
+    font-size: 13px; font-weight: 600;
+    color: var(--ink);
+    transition: border-color .15s, color .15s, background .15s;
+    text-decoration: none;
+  }
+  .contacts-social-btn:hover { border-color: var(--amber); color: var(--amber); background: rgba(212,131,10,0.04); }
+  .contacts-social-btn svg { width: 16px; height: 16px; }
+
+  /* ── FORM ── */
+  .contacts-form-wrap { }
+  .contacts-form-wrap h2 {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .contacts-form-wrap h2 em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--amber);
+  }
+  .contacts-form-wrap .form-sub {
+    font-size: 15px;
+    color: var(--muted);
+    margin-bottom: 32px;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 900px) {
+    .contacts-body__inner { grid-template-columns: 1fr; gap: 60px; }
+  }
+  @media (max-width: 600px) {
+    .contacts-hero { padding: 110px 0 70px; }
+    .contact-card { padding: 22px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ NAV ═══════════════ -->
+<div class="nav-wrap" id="nav">
+  <nav class="nav">
+    <a href="garyshker.com.html" class="logo">
+      <span class="logo__mark"></span>
+      <span><span class="a">G</span>ARYSHKER.</span>
+    </a>
+    <div class="nav__items">
+      <a class="nav__a" href="about.html" data-i18n="nav.who">Кто мы</a>
+      <a class="nav__a" href="projects.html" data-i18n="nav.projects">Наши проекты</a>
+      <a class="nav__a" href="apply.html" data-i18n="nav.apply">Получить помощь</a>
+      <a class="nav__a" href="support.html" data-i18n="nav.support">Поддержите нас</a>
+      <a class="nav__a is-active" href="contacts.html" data-i18n="nav.contacts">Контакты</a>
+    </div>
+    <div class="nav__right">
+      <div class="lang">
+        <button data-lang="ru" onclick="gsi18n.switchLang('ru')" type="button">РУС</button>
+        <button data-lang="kz" onclick="gsi18n.switchLang('kz')" type="button">КАЗ</button>
+        <button data-lang="en" onclick="gsi18n.switchLang('en')" type="button">ENG</button>
+      </div>
+      <a href="support.html#donate" class="nav__cta" data-i18n="nav.cta">Поддержать</a>
+      <button class="burger" type="button" aria-label="Меню">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <line x1="3" y1="6" x2="17" y2="6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="3" y1="10" x2="17" y2="10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="3" y1="14" x2="17" y2="14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+</div>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="contacts-hero" id="top">
+  <div class="contacts-hero__inner">
+    <div class="overline rv" data-i18n="contacts.hero.overline">Свяжитесь с нами</div>
+    <h1 class="rv rv-d1" data-i18n-html="contacts.hero.h1">Мы всегда <em>на связи</em></h1>
+    <p class="rv rv-d2" data-i18n="contacts.hero.p">Вопросы, партнёрство, медиа — пишите нам.</p>
+  </div>
+</section>
+
+<!-- ═══════════════ MAIN ═══════════════ -->
+<section class="contacts-body">
+  <div class="contacts-body__inner">
+
+    <!-- LEFT: contact info -->
+    <div class="contacts-cards rv">
+
+      <div class="contact-card">
+        <div class="contact-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="5" width="18" height="14" rx="2"/>
+            <path d="M3 7l9 6 9-6"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-card__label" data-i18n="contacts.email.label">Email</div>
+          <div class="contact-card__value"><a href="mailto:info@garyshker.com">info@garyshker.com</a></div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+            <circle cx="12" cy="9" r="2.5"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-card__label" data-i18n="contacts.address.label">Адрес</div>
+          <div class="contact-card__value" data-i18n="contacts.address.value">Алматы, Казахстан</div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-card__label" data-i18n="contacts.social.label">Соцсети</div>
+          <div class="contacts-socials">
+            <a class="contacts-social-btn" href="https://youtube.com/@garyshker" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M10 9.5L15 12l-5 2.5Z" fill="currentColor"/></svg>
+              YouTube
+            </a>
+            <a class="contacts-social-btn" href="https://instagram.com/garyshker" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+              Instagram
+            </a>
+            <a class="contacts-social-btn" href="#" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M14 4V14.5a3.5 3.5 0 1 1-3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 4C14 6 16 8 18 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              TikTok
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 12h6M9 16h4M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8L14 2z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-card__label" data-i18n="contacts.legal.label">Реквизиты</div>
+          <div class="contact-card__value" style="font-size:14px; font-weight:500; line-height:1.8; color: var(--text);">
+            ЧФ «Garyshker Foundation»<br>
+            IBAN · KZ127225000038329758<br>
+            БИН · 220940024982
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: form -->
+    <div class="contacts-form-wrap rv rv-d1">
+      <h2 data-i18n-html="contacts.form.h2">Написать <em>нам</em></h2>
+      <p class="form-sub" data-i18n="contacts.form.sub">Ответим в течение 1–2 рабочих дней.</p>
+
+      <form class="apply-form" id="contacts-form" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contacts">
+        <input type="hidden" name="bot-field">
+
+        <div class="row">
+          <label class="row__lbl" data-i18n="contacts.form.name">Имя</label>
+          <input class="fi" name="name" type="text" data-i18n="contacts.form.name.ph" placeholder="Ваше имя" required>
+        </div>
+
+        <div class="row">
+          <label class="row__lbl" data-i18n="contacts.form.contact">Email или телефон</label>
+          <input class="fi" name="contact" type="text" data-i18n="contacts.form.contact.ph" placeholder="email@example.com или +7 ___" required>
+        </div>
+
+        <div class="row">
+          <label class="row__lbl" data-i18n="contacts.form.topic">Тема обращения</label>
+          <select class="fi" name="topic" required>
+            <option value="" disabled selected data-i18n="contacts.form.topic.ph">Выберите тему</option>
+            <option value="partnership" data-i18n="contacts.form.topic.1">Партнёрство</option>
+            <option value="media" data-i18n="contacts.form.topic.2">Медиа / пресса</option>
+            <option value="volunteer" data-i18n="contacts.form.topic.3">Волонтёрство</option>
+            <option value="donation" data-i18n="contacts.form.topic.4">Пожертвование</option>
+            <option value="other" data-i18n="contacts.form.topic.5">Другое</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <label class="row__lbl" data-i18n="contacts.form.message">Сообщение</label>
+          <textarea class="fi fi--ta" name="message" rows="5" data-i18n="contacts.form.message.ph" placeholder="Расскажите подробнее..." required></textarea>
+        </div>
+
+        <button class="btn btn--amber btn--lg" type="submit" style="width:100%; justify-content:center; margin-top:8px;">
+          <span data-i18n="contacts.form.submit">Отправить</span>
+          <span class="arr">→</span>
+        </button>
+      </form>
+
+      <div class="form-success-box" id="contacts-success" data-i18n="contacts.form.success">
+        Спасибо! Мы получили ваше сообщение и скоро свяжемся с вами.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <div class="footer__inner">
+    <div class="footer__cols">
+      <div class="footer__col">
+        <a href="garyshker.com.html" class="logo" style="color: var(--white); font-size: 22px;">
+          <span class="logo__mark"></span>
+          <span><span class="a">G</span>ARYSHKER.</span>
+        </a>
+        <p style="margin-top: 18px; font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.55; max-width: 240px;" data-i18n="footer.sub">
+          Образовательное движение Казахстана с 2019.
+        </p>
+      </div>
+
+      <div class="footer__col">
+        <h4 data-i18n="footer.nav">Навигация</h4>
+        <ul>
+          <li><a href="about.html" data-i18n="footer.nav.who">Кто мы</a></li>
+          <li><a href="projects.html" data-i18n="footer.nav.projects">Наши проекты</a></li>
+          <li><a href="apply.html" data-i18n="footer.nav.apply">Получить помощь</a></li>
+          <li><a href="support.html" data-i18n="footer.nav.support">Поддержите нас</a></li>
+          <li><a href="contacts.html" data-i18n="footer.nav.contacts">Контакты</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4 data-i18n="footer.social">Соцсети</h4>
+        <ul>
+          <li><a href="https://youtube.com/@garyshker" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="https://instagram.com/garyshker" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="#" target="_blank" rel="noopener">TikTok</a></li>
+        </ul>
+        <div class="footer__socials">
+          <a class="footer__social" href="https://youtube.com/@garyshker" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M10 9.5L15 12l-5 2.5Z" fill="currentColor"/></svg>
+          </a>
+          <a class="footer__social" href="https://instagram.com/garyshker" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          </a>
+          <a class="footer__social" href="#" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M14 4V14.5a3.5 3.5 0 1 1-3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 4C14 6 16 8 18 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h4 data-i18n="footer.reqs">Реквизиты</h4>
+        <div class="reqs">
+          ЧФ «Garyshker Foundation»<br>
+          IBAN · KZ127225000038329758<br>
+          БИН · 220940024982<br>
+          <br>
+          <a href="mailto:info@garyshker.com" class="a">info@garyshker.com</a><br>
+          <span data-i18n="footer.city">Алматы, Казахстан</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="footer__bottom-lang lang">
+        <button data-lang="ru" onclick="gsi18n.switchLang('ru')" type="button">РУС</button>
+        <button data-lang="kz" onclick="gsi18n.switchLang('kz')" type="button">КАЗ</button>
+        <button data-lang="en" onclick="gsi18n.switchLang('en')" type="button">ENG</button>
+      </div>
+      <div data-i18n="footer.copy">© Garyshker Foundation 2026 · Алматы</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.lang button, .footer__bottom-lang button').forEach(b => {
+    b.addEventListener('click', () => {
+      const group = b.closest('.lang, .footer__bottom-lang');
+      group.querySelectorAll('button').forEach(x => x.classList.toggle('is-active', x === b));
+    });
+  });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+  const f = document.getElementById('contacts-form');
+  const s = document.getElementById('contacts-success');
+  if (f && s) {
+    f.addEventListener('submit', e => {
+      e.preventDefault();
+      f.style.display = 'none';
+      s.classList.add('is-show');
+      s.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  }
+</script>
+</body>
+</html>

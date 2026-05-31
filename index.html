@@ -1,0 +1,717 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Garyshker · Образовательное движение Казахстана</title>
+<meta name="description" content="У мечтаний, как и у космоса, не должно быть пределов. Образовательное движение Казахстана с 2019 года.">
+<meta property="og:title" content="GARYSHKER — Образовательное движение Казахстана">
+<meta property="og:description" content="Помогаем детям из уязвимых семей получить доступ к качественному образованию с 2019 года.">
+<meta property="og:url" content="https://garyshkerrr.netlify.app/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GARYSHKER">
+<meta property="og:image" content="https://garyshkerrr.netlify.app/assets/og_cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://garyshkerrr.netlify.app/assets/og_cover.jpg">
+<meta name="theme-color" content="#D4830A">
+<link rel="preload" as="image" href="assets/girl_g_backpack_school.jpg">
+<script src="js/i18n.js" defer></script>
+<script src="js/stats.js" defer></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+<style>
+  /* ─────────────── Home-specific styles ─────────────── */
+
+  /* HERO */
+  .home-hero {
+    position: relative;
+    min-height: 100vh;
+    padding: 0;
+    overflow: hidden;
+    display: flex; align-items: flex-start;
+  }
+  .home-hero__bg {
+    position: absolute; inset: 0;
+    background: url('assets/girl_g_backpack_school.jpg') center 30% / cover no-repeat;
+    z-index: 0;
+    transform: scale(1.05);
+    animation: heroZoom 22s var(--ease) forwards;
+  }
+  @keyframes heroZoom { to { transform: scale(1); } }
+  .home-hero__bg::after {
+    content: ""; position: absolute; inset: 0;
+    background:
+      linear-gradient(90deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.42) 45%, rgba(0,0,0,0.18) 100%),
+      linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 70%, rgba(0,0,0,0.55) 100%);
+  }
+  .home-hero__inner {
+    position: relative; z-index: 1;
+    width: 100%;
+    padding: 30vh 10vw 100px;
+    max-width: 1400px;
+  }
+  .home-hero__content { max-width: 760px; }
+  .home-hero h1 {
+    color: var(--white);
+    font-size: clamp(40px, 7vw, 88px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+    text-wrap: pretty;
+  }
+  .home-hero h1 em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--amber);
+    letter-spacing: -0.005em;
+  }
+  .home-hero__sub {
+    font-size: 20px;
+    color: rgba(255,255,255,0.88);
+    margin-bottom: 44px;
+    max-width: 520px;
+    line-height: 1.5;
+  }
+  .home-hero__ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+  @media (max-width: 720px) { .home-hero__inner { padding: 0 var(--pad-x); } }
+
+  /* KEY STATS — 4 in a row */
+  .key-stats {
+    background: var(--white);
+    padding: 100px 0;
+  }
+  .key-stats__inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 var(--pad-x);
+  }
+  .key-stats__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    margin-bottom: 56px;
+  }
+  @media (max-width: 880px) { .key-stats__grid { grid-template-columns: 1fr 1fr; gap: 48px 24px; } }
+  .key-stats__cell { text-align: left; }
+  .key-stats__n {
+    font-size: clamp(56px, 7vw, 96px);
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    font-variant-numeric: tabular-nums;
+    margin-bottom: 14px;
+  }
+  .key-stats__l {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--amber);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+  .key-stats__s {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .key-stats__cta { text-align: center; }
+
+  /* WHY — large italic quote on gray */
+  .why {
+    background: var(--gray);
+    padding: 120px 0;
+  }
+  .why__inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 var(--pad-x);
+  }
+  .why .overline { margin-bottom: 36px; display: block; }
+  .why__q {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: clamp(28px, 3.4vw, 44px);
+    line-height: 1.32;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    font-weight: 400;
+    text-wrap: pretty;
+  }
+  .why__q .amber { color: var(--amber); font-weight: 400; }
+  .why__q::before { content: "« "; color: var(--amber); }
+  .why__q::after  { content: " »"; color: var(--amber); }
+
+  /* DIRECTIONS — 6 cards */
+  .directions {
+    background: var(--white);
+    padding: 100px 0;
+  }
+  .directions__inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 var(--pad-x);
+  }
+  .directions__head {
+    margin-bottom: 56px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: end;
+  }
+  @media (max-width: 720px) { .directions__head { grid-template-columns: 1fr; gap: 16px; } }
+  .directions__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 920px) { .directions__grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .directions__grid { grid-template-columns: 1fr; } }
+
+  /* STORY split */
+  .home-story {
+    background: var(--white);
+    overflow: hidden;
+  }
+  .home-story__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 580px;
+  }
+  @media (max-width: 880px) {
+    .home-story__inner { display: flex; flex-direction: column; }
+    .home-story__img { order: -1; }
+  }
+  .home-story__img {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 380px;
+  }
+  .home-story__body {
+    padding: clamp(56px, 8vw, 96px) clamp(36px, 6vw, 88px);
+    display: flex; flex-direction: column; justify-content: center;
+    max-width: 640px;
+  }
+  .home-story__body .overline { margin-bottom: 18px; }
+  .home-story__name {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 22px;
+    letter-spacing: -0.005em;
+  }
+  .home-story__q {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: clamp(24px, 2.6vw, 34px);
+    line-height: 1.35;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    font-weight: 400;
+    margin-bottom: 32px;
+    text-wrap: pretty;
+  }
+  .home-story__q::before { content: "« "; color: var(--amber); }
+  .home-story__q::after  { content: " »"; color: var(--amber); }
+
+  /* PARTNERS — dark row */
+  .home-partners {
+    background: var(--white);
+    padding: 80px 0;
+    text-align: center;
+    border-top: 1px solid var(--gray-line);
+  }
+  .home-partners__inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 var(--pad-x);
+  }
+  .home-partners .overline {
+    color: var(--muted);
+    letter-spacing: 0.18em;
+    margin-bottom: 48px;
+  }
+  .home-partners__row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+  }
+  .partner-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 40px;
+    transition: transform .2s ease;
+  }
+  .partner-logo:hover {
+    transform: scale(1.06);
+  }
+  .partner-logo img {
+    height: 44px;
+    width: auto;
+    max-width: 140px;
+    object-fit: contain;
+    opacity: 0.5;
+    filter: grayscale(100%);
+    transition: opacity .2s ease, filter .2s ease;
+  }
+  .partner-logo:hover img {
+    opacity: 1;
+    filter: grayscale(0%);
+  }
+  @media (max-width: 600px) {
+    .partner-logo { padding: 16px 24px; }
+    .partner-logo img { height: 34px; }
+  }
+
+  /* EVENTS — 3 cards */
+  .events {
+    background: var(--white);
+    padding: 100px 0 120px;
+  }
+  .events__inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 var(--pad-x);
+  }
+  .events__head { margin-bottom: 56px; }
+  .events__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 56px;
+  }
+  @media (max-width: 880px) { .events__grid { grid-template-columns: 1fr; gap: 32px; } }
+  .ecard { display: block; transition: transform .25s var(--ease); }
+  .ecard:hover { transform: translateY(-4px); }
+  .ecard__photo {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--gray);
+    margin-bottom: 20px;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .ecard__date {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--amber);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .ecard__title {
+    font-size: clamp(20px, 2vw, 24px);
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    text-wrap: pretty;
+  }
+  .ecard:hover .ecard__title { color: var(--amber); }
+  .events__cta { text-align: center; }
+
+  /* FOOTER — amber CTA strip + 4-col */
+  .footer-cta {
+    background: var(--ink);
+    padding: 56px 0;
+    text-align: center;
+    border-bottom: 1px solid var(--gray-line-dk);
+  }
+  .footer-cta .btn {
+    padding: 20px 42px;
+    font-size: 17px;
+  }
+  footer .footer__cols .reqs {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.7;
+    letter-spacing: 0.02em;
+  }
+  footer .footer__bottom-lang {
+    display: flex; gap: 2px;
+    font-family: var(--font);
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.06em;
+  }
+  footer .footer__bottom-lang button {
+    padding: 5px 7px;
+    border-radius: 4px;
+    transition: color .15s ease;
+  }
+  footer .footer__bottom-lang button:hover { color: var(--white); }
+  footer .footer__bottom-lang button.is-active { color: var(--amber); }
+</style>
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+    <rect width="200" height="200" fill="#FFFFFF"/>
+    <circle cx="100" cy="100" r="44" fill="#D4830A"/>
+    <text x="100" y="170" text-anchor="middle" font-family="sans-serif" font-weight="800" font-size="20" fill="#111111">garyshker</text>
+  </svg>
+</template>
+</head>
+<body>
+
+<!-- ═══════════════ NAV ═══════════════ -->
+<div class="nav-wrap" id="nav">
+  <nav class="nav">
+    <a href="garyshker.com.html" class="logo">
+      <span class="logo__mark"></span>
+      <span><span class="a">G</span>ARYSHKER.</span>
+    </a>
+    <div class="nav__items">
+      <a class="nav__a" href="about.html" data-i18n="nav.who">Кто мы</a>
+      <a class="nav__a" href="projects.html" data-i18n="nav.projects">Наши проекты</a>
+      <a class="nav__a" href="apply.html" data-i18n="nav.apply">Получить помощь</a>
+      <a class="nav__a" href="support.html" data-i18n="nav.support">Поддержите нас</a>
+      <a class="nav__a" href="contacts.html" data-i18n="nav.contacts">Контакты</a>
+    </div>
+    <div class="nav__right">
+      <div class="lang">
+        <button data-lang="ru" onclick="gsi18n.switchLang('ru')" type="button">РУС</button>
+        <button data-lang="kz" onclick="gsi18n.switchLang('kz')" type="button">КАЗ</button>
+        <button data-lang="en" onclick="gsi18n.switchLang('en')" type="button">ENG</button>
+      </div>
+      <a href="support.html#donate" class="nav__cta" data-i18n="nav.cta">Поддержать</a>
+      <button class="burger" type="button" aria-label="Меню">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <line x1="3" y1="6" x2="17" y2="6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="3" y1="10" x2="17" y2="10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="3" y1="14" x2="17" y2="14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+</div>
+
+<!-- ═══════════════ BLOCK 1 — HERO ═══════════════ -->
+<section class="home-hero" id="top">
+  <div class="home-hero__bg"></div>
+  <div class="home-hero__inner">
+    <div class="home-hero__content">
+      <h1 class="rv" data-i18n-html="home.hero.h1">У мечтаний, как и у космоса, не должно быть <em>пределов</em></h1>
+      <p class="home-hero__sub rv rv-d1" data-i18n="home.hero.sub">Образовательное движение Казахстана</p>
+      <div class="home-hero__ctas rv rv-d2">
+        <a href="support.html" class="btn btn--amber btn--lg">
+          <span data-i18n="home.hero.btn1">Поддержите нас</span>
+          <span class="arr">→</span>
+        </a>
+        <a href="about.html" class="btn btn--outline-light btn--lg">
+          <span data-i18n="home.hero.btn2">Узнать о нас</span>
+          <span class="arr">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ BLOCK 2 — КЛЮЧЕВЫЕ ЦИФРЫ ═══════════════ -->
+<section class="key-stats">
+  <div class="key-stats__inner">
+    <div class="key-stats__grid">
+      <div class="key-stats__cell rv">
+        <div class="key-stats__n" data-stat="рюкзаков">14 200</div>
+        <div class="key-stats__l" data-i18n="home.stats.l1">Рюкзаков роздано</div>
+        <div class="key-stats__s" data-i18n="home.stats.s1">с 2019 года, по всей стране</div>
+      </div>
+      <div class="key-stats__cell rv rv-d1">
+        <div class="key-stats__n" data-stat="городов">12</div>
+        <div class="key-stats__l" data-i18n="home.stats.l2">Городов</div>
+        <div class="key-stats__s" data-i18n="home.stats.s2">по всему Казахстану</div>
+      </div>
+      <div class="key-stats__cell rv rv-d2">
+        <div class="key-stats__n" data-stat="семей">11 800</div>
+        <div class="key-stats__l" data-i18n="home.stats.l3">Семей охвачено</div>
+        <div class="key-stats__s" data-i18n="home.stats.s3">YouTube + Instagram</div>
+      </div>
+      <div class="key-stats__cell rv rv-d3">
+        <div class="key-stats__n" data-stat="волонтёров">340</div>
+        <div class="key-stats__l" data-i18n="home.stats.l4">Активных волонтёров</div>
+        <div class="key-stats__s" data-i18n="home.stats.s4">шестой год движения</div>
+      </div>
+    </div>
+    <div class="key-stats__cta rv">
+      <a href="support.html" class="btn btn--amber btn--lg">
+        <span data-i18n="home.stats.cta">Поддержать движение</span>
+        <span class="arr">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ BLOCK 3 — ПОЧЕМУ МЫ СУЩЕСТВУЕМ ═══════════════ -->
+<section class="why">
+  <div class="why__inner">
+    <div class="overline rv" data-i18n="home.why.overline">Почему мы существуем</div>
+    <blockquote class="why__q rv rv-d1" data-i18n-html="home.why.q">70% школьников Казахстана учатся на казахском языке. При этом качественного образовательного контента на казахском почти не существует. Темы которые меняют жизнь — финансы, ментальное здоровье, права, критическое мышление — в школе либо не преподаются вовсе, либо преподаются формально. <span class="amber">Garyshker закрывает эту нишу.</span></blockquote>
+  </div>
+</section>
+
+<!-- ═══════════════ BLOCK 4 — НАШИ НАПРАВЛЕНИЯ ═══════════════ -->
+<section class="directions">
+  <div class="directions__inner">
+    <div class="directions__head">
+      <div>
+        <div class="overline rv" data-i18n="home.dir.overline">Направления</div>
+        <h2 class="h2 rv rv-d1" style="margin-top: 14px;" data-i18n-html="home.dir.h2">Наши <em>направления</em></h2>
+      </div>
+      <p class="body rv rv-d2" data-i18n="home.dir.desc">Две работающие программы и четыре плана до 2030 года. Подача честная — без обещаний, которые мы не сможем выполнить.</p>
+    </div>
+
+    <div class="directions__grid">
+      <a href="projects.html#cosmosomke" class="pcard rv">
+        <span class="pcard__tag pcard__tag--active"><span class="dot"></span><span data-i18n="home.dir.tag.active">Активно</span></span>
+        <div class="pcard__name" data-i18n-html="home.dir.cosmosomke.name">Garyshker <em>Cosmosomke</em></div>
+        <p class="pcard__desc" data-i18n="home.dir.cosmosomke.desc">Рюкзаки для детей из социально уязвимых семей. Адресно на дом, с уважением к каждой семье.</p>
+        <span class="pcard__cta"><span data-i18n="home.dir.cosmosomke.cta">Подробнее</span> <span class="arr">→</span></span>
+      </a>
+
+      <a href="projects.html#media" class="pcard rv rv-d1">
+        <span class="pcard__tag pcard__tag--active"><span class="dot"></span><span data-i18n="home.dir.tag.active">Активно</span></span>
+        <div class="pcard__name" data-i18n-html="home.dir.media.name">Garyshker <em>Media</em></div>
+        <p class="pcard__desc" data-i18n="home.dir.media.desc">Образовательный контент на казахском — о темах, о которых молчат в школе.</p>
+        <span class="pcard__cta"><span data-i18n="home.dir.media.cta">Подробнее</span> <span class="arr">→</span></span>
+      </a>
+
+      <a href="projects.html#synyptar" class="pcard rv rv-d2">
+        <span class="pcard__tag pcard__tag--planned" data-i18n="home.dir.tag.planned">До 2030</span>
+        <div class="pcard__name" data-i18n-html="home.dir.synyptar.name">Garyshker <em>Сыныптар</em></div>
+        <p class="pcard__desc" data-i18n="home.dir.synyptar.desc">Образовательные модули для школ — готовые программы на казахском бесплатно.</p>
+        <span class="pcard__cta"><span data-i18n="home.dir.synyptar.cta">Подробнее</span> <span class="arr">→</span></span>
+      </a>
+
+      <a href="projects.html#grant" class="pcard rv">
+        <span class="pcard__tag pcard__tag--planned" data-i18n="home.dir.tag.planned">До 2030</span>
+        <div class="pcard__name" data-i18n-html="home.dir.grant.name">Garyshker <em>Grant</em></div>
+        <p class="pcard__desc" data-i18n="home.dir.grant.desc">Гранты и менторство для молодёжи из регионов Казахстана.</p>
+        <span class="pcard__cta"><span data-i18n="home.dir.grant.cta">Подробнее</span> <span class="arr">→</span></span>
+      </a>
+
+      <a href="projects.html#chapters" class="pcard rv rv-d1">
+        <span class="pcard__tag pcard__tag--planned" data-i18n="home.dir.tag.planned">До 2030</span>
+        <div class="pcard__name" data-i18n-html="home.dir.chapters.name">Garyshker <em>Chapters</em></div>
+        <p class="pcard__desc" data-i18n="home.dir.chapters.desc">Студенческие клубы в университетах — среда для будущих лидеров движения.</p>
+        <span class="pcard__cta"><span data-i18n="home.dir.chapters.cta">Подробнее</span> <span class="arr">→</span></span>
+      </a>
+
+      <a href="projects.html#research" class="pcard rv rv-d2">
+        <span class="pcard__tag pcard__tag--planned" data-i18n="home.dir.tag.planned">До 2030</span>
+        <div class="pcard__name" data-i18n-html="home.dir.research.name">Garyshker <em>Research</em></div>
+        <p class="pcard__desc" data-i18n="home.dir.research.desc">Исследования о молодёжи Казахстана — данные для системных изменений.</p>
+        <span class="pcard__cta"><span data-i18n="home.dir.research.cta">Подробнее</span> <span class="arr">→</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ BLOCK 5 — ИСТОРИЯ ОДНОГО РЕБЁНКА ═══════════════ -->
+<section class="home-story">
+  <div class="home-story__inner">
+    <div class="home-story__img" style="background-image: url('assets/three_girls_sunset.jpg');" role="img" aria-label="Айгерим с подругами"></div>
+    <div class="home-story__body">
+      <div class="overline rv" data-i18n="home.story.overline">История</div>
+      <div class="home-story__name rv rv-d1" data-i18n="home.story.name">Айгерим, 11 лет · Атырау</div>
+      <blockquote class="home-story__q rv rv-d2" data-i18n-html="home.story.q">Когда нам принесли рюкзак, она сказала: «Теперь я не буду стыдиться идти в школу». Это не просто рюкзак — это <em style="font-family: var(--font-serif); color: var(--amber);">достоинство</em>.</blockquote>
+      <div class="rv rv-d3">
+        <a href="projects.html#cosmosomke" class="arrow-link"><span data-i18n="home.story.cta">Читать историю</span> <span class="arr">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ BLOCK 6 — ПАРТНЁРЫ ═══════════════ -->
+<section class="home-partners">
+  <div class="home-partners__inner">
+    <div class="overline rv" data-i18n="home.partners.overline">Нам доверяют</div>
+    <div class="home-partners__row">
+      <a class="partner-logo rv" href="https://oyla.kz/" target="_blank" rel="noopener" aria-label="OYLA">
+        <img src="assets/logo_oyla.svg" alt="OYLA">
+      </a>
+      <a class="partner-logo rv rv-d1" href="https://zeta.kz/" target="_blank" rel="noopener" aria-label="ZETA">
+        <img src="assets/logo_zeta.svg" alt="ZETA">
+      </a>
+      <a class="partner-logo rv rv-d1" href="https://sandyqgroup.com/menu-tary" target="_blank" rel="noopener" aria-label="Sandyq Group">
+        <img src="assets/logo_sandyq.svg" alt="Sandyq Group">
+      </a>
+      <a class="partner-logo rv rv-d2" href="https://kmf.kz/" target="_blank" rel="noopener" aria-label="KMF">
+        <img src="assets/logo_kmf.svg" alt="KMF">
+      </a>
+      <a class="partner-logo rv rv-d2" href="https://airastana.com/kaz-ru" target="_blank" rel="noopener" aria-label="Air Astana">
+        <img src="assets/logo_airastana.webp" alt="Air Astana">
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ BLOCK 7 — ПОСЛЕДНИЕ СОБЫТИЯ ═══════════════ -->
+<section class="events">
+  <div class="events__inner">
+    <div class="events__head">
+      <div class="overline rv" data-i18n="home.events.overline">Новости</div>
+      <h2 class="h2 rv rv-d1" style="margin-top: 14px;" data-i18n-html="home.events.h2">Последние <em>события</em></h2>
+    </div>
+
+    <div class="events__grid">
+      <a class="ecard rv" href="#">
+        <div class="ecard__photo" style="background-image: url('assets/boy_gift.jpg');"></div>
+        <div class="ecard__date" data-i18n="home.events.e1.date">15 мая 2026</div>
+        <h3 class="ecard__title" data-i18n="home.events.e1.title">Весенний сбор рюкзаков: итоги</h3>
+      </a>
+
+      <a class="ecard rv rv-d1" href="#">
+        <div class="ecard__photo" style="background-image: url('assets/cosmosomke_packing_wide.jpg');"></div>
+        <div class="ecard__date" data-i18n="home.events.e2.date">02 апреля 2026</div>
+        <h3 class="ecard__title" data-i18n="home.events.e2.title">Как мы собрали 500 рюкзаков за один день</h3>
+      </a>
+
+      <a class="ecard rv rv-d2" href="#">
+        <div class="ecard__photo" style="background-image: url('assets/bg_walking.jpg');"></div>
+        <div class="ecard__date" data-i18n="home.events.e3.date">18 марта 2026</div>
+        <h3 class="ecard__title" data-i18n="home.events.e3.title">Garyshker Media: первый миллион просмотров</h3>
+      </a>
+    </div>
+
+    <div class="events__cta rv">
+      <a href="#" class="btn btn--amber btn--lg">
+        <span data-i18n="home.events.cta">Смотреть все события</span>
+        <span class="arr">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<div class="footer-cta">
+  <a href="support.html" class="btn btn--amber">
+    <span data-i18n="footer.cta.btn">Поддержать движение</span>
+    <span class="arr">→</span>
+  </a>
+</div>
+
+<footer>
+  <div class="footer__inner">
+    <div class="footer__cols">
+      <div class="footer__col">
+        <a href="garyshker.com.html" class="logo" style="color: var(--white); font-size: 22px;">
+          <span class="logo__mark"></span>
+          <span><span class="a">G</span>ARYSHKER.</span>
+        </a>
+        <p style="margin-top: 18px; font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.55; max-width: 240px;" data-i18n="footer.sub">
+          Образовательное движение Казахстана с 2019.
+        </p>
+      </div>
+
+      <div class="footer__col">
+        <h4 data-i18n="footer.nav">Навигация</h4>
+        <ul>
+          <li><a href="about.html" data-i18n="footer.nav.who">Кто мы</a></li>
+          <li><a href="projects.html" data-i18n="footer.nav.projects">Наши проекты</a></li>
+          <li><a href="apply.html" data-i18n="footer.nav.apply">Получить помощь</a></li>
+          <li><a href="support.html" data-i18n="footer.nav.support">Поддержите нас</a></li>
+          <li><a href="contacts.html" data-i18n="footer.nav.contacts">Контакты</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4 data-i18n="footer.social">Соцсети</h4>
+        <ul>
+          <li><a href="https://youtube.com/@garyshker" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="https://instagram.com/garyshker" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="#" target="_blank" rel="noopener">TikTok</a></li>
+        </ul>
+        <div class="footer__socials">
+          <a class="footer__social" href="https://youtube.com/@garyshker" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="6" width="18" height="12" rx="3" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M10 9.5 L15 12 L10 14.5 Z" fill="currentColor"/>
+            </svg>
+          </a>
+          <a class="footer__social" href="https://instagram.com/garyshker" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/>
+              <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+            </svg>
+          </a>
+          <a class="footer__social" href="#" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M14 4 V14.5 a3.5 3.5 0 1 1 -3.5 -3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14 4 C 14 6 16 8 18 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h4 data-i18n="footer.reqs">Реквизиты</h4>
+        <div class="reqs">
+          ЧФ «Garyshker Foundation»<br>
+          IBAN · KZ127225000038329758<br>
+          БИН · 220940024982<br>
+          <br>
+          <a href="mailto:info@garyshker.com" class="a">info@garyshker.com</a><br>
+          <span data-i18n="footer.city">Алматы, Казахстан</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="footer__bottom-lang lang">
+        <button data-lang="ru" onclick="gsi18n.switchLang('ru')" type="button">РУС</button>
+        <button data-lang="kz" onclick="gsi18n.switchLang('kz')" type="button">КАЗ</button>
+        <button data-lang="en" onclick="gsi18n.switchLang('en')" type="button">ENG</button>
+      </div>
+      <div data-i18n="footer.copy">© Garyshker Foundation 2026 · Алматы</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ════════ Lang switch ════════
+  document.querySelectorAll('.lang button, .footer__bottom-lang button').forEach(b => {
+    b.addEventListener('click', () => {
+      const group = b.closest('.lang, .footer__bottom-lang');
+      group.querySelectorAll('button').forEach(x => x.classList.toggle('is-active', x === b));
+    });
+  });
+
+  // ════════ Transparent nav on hero ════════
+  const navWrap = document.getElementById('nav');
+  const heroSection = document.getElementById('top');
+  function updateNav() {
+    const heroBottom = heroSection ? heroSection.getBoundingClientRect().bottom : 0;
+    navWrap.classList.toggle('nav-wrap--hero', heroBottom > 70);
+  }
+  updateNav();
+  window.addEventListener('scroll', updateNav, { passive: true });
+
+  // ════════ Scroll reveal ════════
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

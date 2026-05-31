@@ -1,0 +1,8 @@
+{
+  "рюкзаков": { "value": "14 200", "label": "рюкзаков вручено", "label_kz": "рюкзак табысталды", "label_en": "backpacks delivered" },
+  "семей": { "value": "11 800", "label": "семей охвачено", "label_kz": "отбасы қамтылды", "label_en": "families reached" },
+  "волонтёров": { "value": "340", "label": "активных волонтёров", "label_kz": "белсенді волонтер", "label_en": "active volunteers" },
+  "городов": { "value": "12", "label": "городов Казахстана", "label_kz": "Қазақстан қаласы", "label_en": "cities in Kazakhstan" },
+  "youtube": { "value": "—", "label": "подписчиков YouTube", "label_kz": "YouTube жазылушы", "label_en": "YouTube subscribers", "api": "youtube" },
+  "instagram": { "value": "—", "label": "подписчиков Instagram", "label_kz": "Instagram жазылушы", "label_en": "Instagram followers", "api": "instagram" }
+}

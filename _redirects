@@ -1,0 +1,6 @@
+/ru/*  /:splat?lang=ru  302
+/kz/*  /:splat?lang=kz  302
+/en/*  /:splat?lang=en  302
+/ru    /           302
+/kz    /?lang=kz   302
+/en    /?lang=en   302
